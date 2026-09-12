@@ -1,1 +1,144 @@
-/* You can add global styles to this file, and also import other style files */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-slate-950 text-slate-100 antialiased min-h-screen font-sans;
+    background-image:
+      radial-gradient(at 0% 0%, rgba(4, 120, 87, 0.12) 0px, transparent 50%),
+      radial-gradient(at 100% 100%, rgba(217, 119, 6, 0.08) 0px, transparent 50%);
+    background-attachment: fixed;
+  }
+}
+
+.glass-card {
+  @apply bg-slate-900/80 backdrop-blur-md border border-slate-800/80 rounded-2xl shadow-xl;
+}
+
+.glass-input {
+  @apply bg-slate-950/70 border border-slate-700/70 rounded-xl px-4 py-2.5 text-slate-100 placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-brand-500/50 focus:border-brand-500 transition-all;
+}
+
+/* Custom scrollbars */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #090d16;
+}
+::-webkit-scrollbar-thumb {
+  background: #1e293b;
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #334155;
+}
+
+/* Custom animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes glowGreen {
+  0%, 100% {
+    box-shadow: 0 0 8px rgba(16, 185, 129, 0.3);
+  }
+  50% {
+    box-shadow: 0 0 20px rgba(16, 185, 129, 0.6);
+  }
+}
+
+.animate-fadeIn {
+  animation: fadeIn 0.5s ease-out both;
+}
+
+.animate-slideDown {
+  animation: slideDown 0.3s ease-out both;
+}
+
+.animate-glow-green {
+  animation: glowGreen 2s ease-in-out infinite;
+}
+
+/* Beautiful Rich Markdown Content Styles */
+.markdown-content {
+  @apply text-slate-200 text-sm leading-relaxed;
+}
+
+.markdown-content h1,
+.markdown-content h2 {
+  @apply text-lg sm:text-xl font-extrabold text-white tracking-tight mt-6 mb-3 pb-2 border-b border-slate-800 flex items-center gap-2;
+}
+
+.markdown-content h3 {
+  @apply text-base font-bold text-emerald-400 mt-5 mb-2.5 flex items-center gap-1.5;
+}
+
+.markdown-content h4 {
+  @apply text-sm font-semibold text-slate-300 mt-4 mb-2;
+}
+
+.markdown-content p {
+  @apply mb-3 text-slate-300 leading-relaxed;
+}
+
+.markdown-content strong {
+  @apply text-white font-semibold;
+}
+
+.markdown-content hr {
+  @apply my-5 border-0 h-px bg-gradient-to-r from-transparent via-slate-700 to-transparent;
+}
+
+.markdown-content ul {
+  @apply my-3 space-y-2 pl-2 list-none;
+}
+
+.markdown-content ul > li {
+  @apply relative pl-5 text-slate-300 leading-relaxed;
+}
+
+.markdown-content ul > li::before {
+  content: "•";
+  @apply absolute left-0 text-emerald-400 font-bold text-base;
+}
+
+.markdown-content ol {
+  @apply my-3 space-y-2.5 pl-5 list-decimal text-slate-300;
+}
+
+.markdown-content ol > li {
+  @apply pl-1.5 leading-relaxed text-slate-300;
+}
+
+.markdown-content ol > li::marker {
+  @apply text-emerald-400 font-bold;
+}
+
+.markdown-content blockquote {
+  @apply my-4 p-4 rounded-xl bg-slate-950/60 border-l-4 border-brand-500 text-slate-300 italic;
+}
+
+.markdown-content code {
+  @apply px-1.5 py-0.5 rounded bg-slate-800 text-emerald-300 font-mono text-xs border border-slate-700;
+}

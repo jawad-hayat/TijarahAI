@@ -1,0 +1,382 @@
+<div class="max-w-7xl mx-auto space-y-8 animate-fadeIn">
+
+  <!-- Live Market Ticker Tape Header -->
+  <div class="glass-card overflow-hidden p-1.5 border-slate-800/80 bg-slate-950/70 shadow-2xl">
+    <div class="flex items-center space-x-3 px-3 py-1 text-xs border-b border-slate-800/60 text-slate-400">
+      <span class="flex h-2 w-2 relative">
+        <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+        <span class="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
+      </span>
+      <span class="font-semibold uppercase tracking-wider text-[11px] text-slate-300">Live Global Financial Feed</span>
+      <span class="text-slate-600">|</span>
+      <span class="text-slate-500 hidden sm:inline">Real-time quotes & online market movements</span>
+    </div>
+    <div #tickerTapeContainer class="tradingview-widget-container h-12 w-full"></div>
+  </div>
+
+  <!-- Hero Header -->
+  <div class="text-center space-y-2 pt-2">
+    <div class="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-brand-500/10 border border-brand-500/20 text-brand-400 text-xs font-semibold uppercase tracking-wider mb-1">
+      <span>🟢 Shariah Equity Intelligence</span>
+    </div>
+    <h1 class="text-3xl font-extrabold text-white tracking-tight sm:text-4xl">
+      Live Stocks <span class="text-brand-400">& Shariah Screener</span>
+    </h1>
+    <p class="text-slate-400 max-w-2xl mx-auto text-sm sm:text-base">
+      Audit any public equity live before investing. Analyzed simultaneously against <strong class="text-emerald-400">AAOIFI Standard No. 21</strong> and the <strong class="text-amber-400">Strict 0% Riba Standard</strong>.
+    </p>
+  </div>
+
+  <!-- Search & Direct Investment Audit Bar (Methodology Standard Dropdown Removed) -->
+  <div class="glass-card p-4 sm:p-6 shadow-2xl border-slate-700/60">
+    <div class="grid grid-cols-1 md:grid-cols-12 gap-4 items-end">
+
+      <!-- Ticker Input -->
+      <div class="md:col-span-8 space-y-1.5">
+        <label class="text-xs font-semibold uppercase tracking-wider text-slate-300 flex items-center justify-between">
+          <span>Search Stock Ticker / Symbol to Invest</span>
+          <span class="text-[11px] text-slate-500 font-normal">e.g. AAPL, NVDA, TSLA, 2222.SR, MSFT, AMZN</span>
+        </label>
+        <div class="relative">
+          <input
+            type="text"
+            [(ngModel)]="ticker"
+            (keyup.enter)="onSearchSubmit()"
+            placeholder="ENTER TICKER SYMBOL (e.g. AAPL, NVDA, TSLA)"
+            class="glass-input w-full uppercase font-mono tracking-wider font-bold text-xl pl-4 pr-12 py-3.5 bg-slate-950/80 border-slate-700 focus:border-brand-500 text-white" />
+          <span class="absolute right-4 top-3.5 text-xl text-slate-400">📈</span>
+        </div>
+      </div>
+
+      <!-- Action Button: Direct Audit for Investment -->
+      <div class="md:col-span-4">
+        <button
+          (click)="onSearchSubmit()"
+          [disabled]="isLoading()"
+          class="w-full bg-gradient-to-r from-brand-600 via-emerald-500 to-teal-500 hover:from-brand-500 hover:to-emerald-400 text-white font-bold py-3.5 px-6 rounded-xl shadow-lg shadow-brand-600/30 transition-all duration-300 flex items-center justify-center space-x-2 disabled:opacity-50 hover:shadow-xl hover:shadow-brand-600/40 active:scale-[0.98]">
+          <span *ngIf="isLoading()" class="animate-spin text-lg">⚙️</span>
+          <span class="text-base">{{ isLoading() ? 'Auditing Shariah Data...' : 'Audit Stock Compliance' }}</span>
+        </button>
+      </div>
+
+    </div>
+
+    <!-- Quick Pill Tickers -->
+    <div class="mt-4 pt-4 border-t border-slate-800/80 flex flex-wrap items-center gap-2 text-xs">
+      <span class="text-slate-400 font-medium">Quick Audit:</span>
+      <button
+        *ngFor="let s of popularStocks"
+        (click)="onSelectStock(s)"
+        [ngClass]="ticker().toUpperCase() === s.symbol ? 'bg-brand-900 border-brand-500 text-white' : 'bg-slate-800 text-slate-200 border-slate-700'"
+        class="px-3 py-1.5 rounded-lg hover:bg-slate-700 font-mono text-xs font-semibold transition-all duration-200 hover:text-white hover:scale-105 active:scale-95 border flex items-center space-x-1.5">
+        <span>{{ s.symbol }}</span>
+        <span class="text-slate-400 text-[10px]">({{ s.name }})</span>
+      </button>
+    </div>
+  </div>
+
+  <!-- Live Interactive Stock Graph (TradingView Online Widget) -->
+  <div class="glass-card overflow-hidden border border-slate-800/90 shadow-2xl">
+    <div class="p-4 bg-slate-900/90 border-b border-slate-800 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
+      <div class="flex items-center space-x-3">
+        <div class="p-2 rounded-xl bg-brand-500/10 border border-brand-500/20 text-brand-400 font-bold">
+          <span>📊</span>
+        </div>
+        <div>
+          <div class="flex items-center space-x-2">
+            <h2 class="text-lg font-bold text-white font-mono uppercase">{{ ticker() }}</h2>
+            <span class="px-2 py-0.5 rounded text-[11px] font-semibold bg-emerald-950/80 border border-emerald-500/40 text-emerald-400 flex items-center space-x-1">
+              <span class="h-1.5 w-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
+              <span>LIVE ONLINE CHART</span>
+            </span>
+          </div>
+          <p class="text-xs text-slate-400">Interactive live candlestick & technical data streaming from online exchanges</p>
+        </div>
+      </div>
+
+      <div class="text-xs text-slate-400 flex items-center space-x-2">
+        <span>Powered by</span>
+        <span class="font-semibold text-slate-200">TradingView Real-Time Market Feed</span>
+      </div>
+    </div>
+
+    <!-- Live TradingView Chart Container -->
+    <div class="h-[460px] w-full bg-slate-950 relative">
+      <div #tradingViewWidget class="tradingview-widget-container h-full w-full">
+        <div class="tradingview-widget-container__widget h-full w-full"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Popular Live Symbols Watchlist Cards -->
+  <div class="space-y-3">
+    <div class="flex items-center justify-between">
+      <h3 class="text-base font-bold text-white flex items-center space-x-2">
+        <span>🌐</span>
+        <span>Popular Stocks & Islamic Market Equities</span>
+      </h3>
+      <span class="text-xs text-slate-400">Click any stock to load live chart & audit Shariah compliance</span>
+    </div>
+
+    <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3">
+      <div
+        *ngFor="let s of popularStocks"
+        (click)="onSelectStock(s)"
+        [ngClass]="ticker().toUpperCase() === s.symbol ? 'ring-2 ring-brand-500' : ''"
+        class="glass-card p-3.5 border cursor-pointer hover:scale-105 hover:shadow-xl transition-all duration-300 flex flex-col justify-between group">
+
+        <div>
+          <div class="flex items-center justify-between mb-1">
+            <span class="font-mono font-bold text-white text-sm group-hover:text-brand-400 transition-colors">{{ s.symbol }}</span>
+            <span class="text-[10px] px-1.5 py-0.5 rounded bg-slate-800 text-slate-300">LIVE</span>
+          </div>
+          <div class="text-xs text-slate-200 font-semibold truncate">{{ s.name }}</div>
+          <div class="text-[10px] text-slate-400 truncate mt-0.5">{{ s.sector }}</div>
+        </div>
+
+        <button
+          class="mt-3 w-full py-1.5 px-2 rounded-lg bg-slate-800 group-hover:bg-brand-600 text-slate-300 group-hover:text-white font-semibold text-[11px] transition-all flex items-center justify-center space-x-1">
+          <span>Audit & Invest</span>
+          <span>&rarr;</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Loading State -->
+  <div *ngIf="isLoading()" class="space-y-4">
+    <div class="glass-card p-6 animate-pulse">
+      <div class="h-6 bg-slate-800 rounded w-1/3 mb-4"></div>
+      <div class="h-4 bg-slate-800 rounded w-2/3 mb-2"></div>
+      <div class="h-4 bg-slate-800 rounded w-1/2"></div>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+      <div class="glass-card p-5 animate-pulse">
+        <div class="h-4 bg-slate-800 rounded w-1/2 mb-3"></div>
+        <div class="h-3 bg-slate-800 rounded w-full mb-2"></div>
+        <div class="h-2 bg-slate-800 rounded-full w-full"></div>
+      </div>
+      <div class="glass-card p-5 animate-pulse">
+        <div class="h-4 bg-slate-800 rounded w-1/2 mb-3"></div>
+        <div class="h-3 bg-slate-800 rounded w-full mb-2"></div>
+        <div class="h-2 bg-slate-800 rounded-full w-full"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Error Banner -->
+  <div *ngIf="errorMessage()" class="p-4 rounded-xl bg-red-950/40 border border-red-800/80 text-red-200 text-sm flex items-center justify-between space-x-3 animate-slideDown">
+    <div class="flex items-center space-x-3">
+      <span class="text-xl">⚠️</span>
+      <div>
+        <div class="font-semibold">Unable to fetch stock audit from backend</div>
+        <div class="text-xs text-red-300/80">{{ errorMessage() }}</div>
+      </div>
+    </div>
+    <button
+      (click)="runScreening()"
+      class="px-3 py-1.5 rounded-lg bg-red-900/60 hover:bg-red-800 text-xs font-semibold text-white transition-colors shrink-0">
+      Retry Audit
+    </button>
+  </div>
+
+  <!-- Screening Results: Dual-Standard Shariah Intelligence (AAOIFI + Strict 0%) -->
+  <div *ngIf="stockResult() as result" class="space-y-6 animate-fadeIn">
+
+    <!-- Top Summary & Investment Verdict Card -->
+    <div class="glass-card p-6 border-l-4 shadow-2xl transition-all duration-500"
+      [ngClass]="result.aaoifiStandard.status === ComplianceStatus.Compliant ? 'border-emerald-500' : 'border-red-500'">
+
+      <div class="flex flex-col lg:flex-row items-start lg:items-center justify-between gap-6">
+
+        <!-- Company & Stock Details -->
+        <div>
+          <div class="flex items-center space-x-3 flex-wrap gap-y-2">
+            <h2 class="text-3xl font-extrabold text-white font-mono">{{ result.ticker }}</h2>
+            <span class="text-xl text-slate-300 font-semibold">{{ result.companyName }}</span>
+            <span class="text-xs px-3 py-1 rounded-full bg-slate-800 text-slate-300 border border-slate-700 font-medium">{{ result.sector }}</span>
+          </div>
+
+          <div class="flex items-center space-x-4 text-sm text-slate-400 mt-2 flex-wrap gap-y-1">
+            <span>Market Cap: <strong class="text-white font-mono">${{ (result.marketCap / 1e9).toFixed(2) }}B</strong></span>
+            <span>•</span>
+            <span>Share Price: <strong class="text-white font-mono">${{ result.currentPrice.toFixed(2) }}</strong></span>
+            <span>•</span>
+            <span class="text-xs text-slate-500">Audited: {{ result.timestamp | date:'medium' }}</span>
+          </div>
+        </div>
+
+        <!-- Dual Verdict Badges -->
+        <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-3">
+
+          <!-- AAOIFI Verdict Badge -->
+          <div class="p-3 rounded-xl flex flex-col items-center justify-center border shadow-lg"
+            [ngClass]="result.aaoifiStandard.status === ComplianceStatus.Compliant ? 'bg-emerald-950 border-emerald-500 text-emerald-400' : 'bg-red-950 border-red-500 text-red-400'">
+            <span class="text-[10px] uppercase font-bold text-slate-400 tracking-wider">AAOIFI No. 21 Verdict</span>
+            <div class="text-sm font-extrabold flex items-center space-x-1.5 mt-0.5">
+              <span>{{ result.aaoifiStandard.status === ComplianceStatus.Compliant ? '✅ COMPLIANT' : '❌ NON-COMPLIANT' }}</span>
+            </div>
+          </div>
+
+          <!-- Strict 0% Riba Verdict Badge -->
+          <div class="p-3 rounded-xl flex flex-col items-center justify-center border shadow-lg"
+            [ngClass]="result.strictStandard.status === ComplianceStatus.Compliant ? 'bg-emerald-950 border-emerald-500 text-emerald-400' : 'bg-red-950 border-red-500 text-red-400'">
+            <span class="text-[10px] uppercase font-bold text-slate-400 tracking-wider">Strict 0% Riba Check</span>
+            <div class="text-sm font-extrabold flex items-center space-x-1.5 mt-0.5">
+              <span>{{ result.strictStandard.status === ComplianceStatus.Compliant ? '✅ ZERO RIBA PASS' : '❌ FAILED (Has Debt)' }}</span>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+      <!-- Purification Schedule Banner -->
+      <div *ngIf="result.aaoifiStandard.dividendPurificationPercentage > 0"
+        class="mt-4 p-3.5 rounded-xl bg-amber-950/40 border border-amber-500/40 text-amber-300 text-xs sm:text-sm flex items-center justify-between flex-wrap gap-2">
+        <div class="flex items-center space-x-2.5">
+          <span class="text-xl">🤲</span>
+          <span>
+            <strong>Dividend Purification Mandatory:</strong> Donate
+            <span class="font-mono font-bold underline">{{ result.aaoifiStandard.dividendPurificationPercentage }}%</span>
+            of any dividend payouts received to charitable causes to cleanse incidental non-compliant income.
+          </span>
+        </div>
+      </div>
+
+      <div *ngIf="result.strictStandard.status === ComplianceStatus.NonCompliant"
+        class="mt-3 p-3 rounded-xl bg-slate-950 border border-slate-800 text-xs text-slate-400 flex items-center space-x-2">
+        <span>ℹ️</span>
+        <span>
+          <strong>Strict Investor Note:</strong> While permissible under global AAOIFI thresholds, this company carries debt and interest income, failing the strict zero-tolerance standard.
+        </span>
+      </div>
+
+    </div>
+
+    <!-- Toggle Audit Tabs: AAOIFI Standard vs Strict Standard -->
+    <div class="flex items-center justify-between border-b border-slate-800 pb-2">
+      <div class="flex items-center space-x-2">
+        <button
+          (click)="activeAuditTab.set('aaoifi')"
+          [ngClass]="activeAuditTab() === 'aaoifi' ? 'bg-brand-600 text-white' : 'text-slate-400 hover:text-white'"
+          class="px-4 py-2 rounded-xl text-xs sm:text-sm font-bold transition-all flex items-center space-x-2">
+          <span>🏛️</span>
+          <span>AAOIFI Standard No. 21 Breakdown</span>
+          <span class="text-[10px] px-1.5 py-0.5 rounded bg-slate-900 font-mono">33% Rule</span>
+        </button>
+
+        <button
+          (click)="activeAuditTab.set('strict')"
+          [ngClass]="activeAuditTab() === 'strict' ? 'bg-brand-600 text-white' : 'text-slate-400 hover:text-white'"
+          class="px-4 py-2 rounded-xl text-xs sm:text-sm font-bold transition-all flex items-center space-x-2">
+          <span>⚖️</span>
+          <span>Strict Taqwa Standard</span>
+          <span class="text-[10px] px-1.5 py-0.5 rounded bg-slate-900 font-mono">0% Zero Riba</span>
+        </button>
+      </div>
+
+      <span class="text-xs text-slate-500 hidden sm:inline">Both methodologies evaluated simultaneously</span>
+    </div>
+
+    <!-- TAB 1: AAOIFI Standard Rules -->
+    <div *ngIf="activeAuditTab() === 'aaoifi'" class="space-y-6 animate-fadeIn">
+      
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div *ngFor="let rule of result.aaoifiStandard.rules" class="glass-card p-5 space-y-3 hover:border-slate-700 transition-all duration-300">
+          <div class="flex items-center justify-between">
+            <h3 class="font-bold text-white text-sm flex items-center space-x-1.5">
+              <span>{{ rule.passed ? '✅' : '❌' }}</span>
+              <span>{{ rule.ruleName }}</span>
+            </h3>
+            <span
+              [ngClass]="rule.passed ? 'text-emerald-400 bg-emerald-950' : 'text-red-400 bg-red-950'"
+              class="text-xs font-bold px-2 py-0.5 rounded">
+              {{ rule.passed ? 'PASS' : 'FAIL' }}
+            </span>
+          </div>
+
+          <p class="text-xs text-slate-400">{{ rule.description }}</p>
+
+          <!-- Progress Ratio Bar -->
+          <div class="space-y-1.5">
+            <div class="flex justify-between text-xs font-mono">
+              <span class="text-slate-300 font-semibold">Actual: {{ rule.calculatedValue }}%</span>
+              <span class="text-slate-500">Allowed Limit: &le; {{ rule.allowedThreshold }}%</span>
+            </div>
+            <div class="w-full bg-slate-800 h-2.5 rounded-full overflow-hidden">
+              <div
+                class="h-full rounded-full transition-all duration-1000 ease-out"
+                [ngClass]="rule.passed ? 'bg-emerald-500' : 'bg-red-500'"
+                [style.width.%]="Math.min(rule.calculatedValue * 2, 100)">
+              </div>
+            </div>
+          </div>
+
+          <p class="text-[11px] text-slate-400 italic pt-1 border-t border-slate-800/60">{{ rule.explanation }}</p>
+        </div>
+      </div>
+
+      <!-- AAOIFI AI Executive Audit -->
+      <div class="glass-card p-6 space-y-4 bg-gradient-to-br from-slate-900 via-slate-900 to-slate-950 border border-slate-700/60 shadow-xl">
+        <div class="flex items-center space-x-2 text-brand-400 font-bold text-sm border-b border-slate-800 pb-3">
+          <span class="text-xl">🤖</span>
+          <span>AAOIFI Shariah Board Executive Audit Summary</span>
+        </div>
+        <div class="markdown-content" [innerHTML]="result.aaoifiStandard.aiExecutiveAudit | markdown"></div>
+      </div>
+
+    </div>
+
+    <!-- TAB 2: Strict Standard Rules -->
+    <div *ngIf="activeAuditTab() === 'strict'" class="space-y-6 animate-fadeIn">
+      
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div *ngFor="let rule of result.strictStandard.rules" class="glass-card p-5 space-y-3 hover:border-slate-700 transition-all duration-300">
+          <div class="flex items-center justify-between">
+            <h3 class="font-bold text-white text-sm flex items-center space-x-1.5">
+              <span>{{ rule.passed ? '✅' : '❌' }}</span>
+              <span>{{ rule.ruleName }}</span>
+            </h3>
+            <span
+              [ngClass]="rule.passed ? 'text-emerald-400 bg-emerald-950' : 'text-red-400 bg-red-950'"
+              class="text-xs font-bold px-2 py-0.5 rounded">
+              {{ rule.passed ? 'PASS' : 'FAIL' }}
+            </span>
+          </div>
+
+          <p class="text-xs text-slate-400">{{ rule.description }}</p>
+
+          <!-- Progress Ratio Bar -->
+          <div class="space-y-1.5">
+            <div class="flex justify-between text-xs font-mono">
+              <span class="text-slate-300 font-semibold">Value: ${{ (rule.calculatedValue / 1e6).toFixed(1) }}M</span>
+              <span class="text-slate-500">Threshold: ${{ rule.allowedThreshold }} (Zero Tolerance)</span>
+            </div>
+            <div class="w-full bg-slate-800 h-2.5 rounded-full overflow-hidden">
+              <div
+                class="h-full rounded-full transition-all duration-1000 ease-out"
+                [ngClass]="rule.passed ? 'bg-emerald-500' : 'bg-red-500'"
+                [style.width.%]="rule.passed ? 0 : 100">
+              </div>
+            </div>
+          </div>
+
+          <p class="text-[11px] text-slate-400 italic pt-1 border-t border-slate-800/60">{{ rule.explanation }}</p>
+        </div>
+      </div>
+
+      <!-- Strict AI Executive Audit -->
+      <div class="glass-card p-6 space-y-4 bg-gradient-to-br from-slate-900 via-slate-900 to-slate-950 border border-slate-700/60 shadow-xl">
+        <div class="flex items-center space-x-2 text-amber-400 font-bold text-sm border-b border-slate-800 pb-3">
+          <span class="text-xl">🤖</span>
+          <span>Strict Taqwa Standard Shariah Audit Summary</span>
+        </div>
+        <div class="markdown-content" [innerHTML]="result.strictStandard.aiExecutiveAudit | markdown"></div>
+      </div>
+
+    </div>
+
+  </div>
+
+</div>

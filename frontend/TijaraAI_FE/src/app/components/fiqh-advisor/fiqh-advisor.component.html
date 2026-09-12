@@ -1,0 +1,203 @@
+<div class="max-w-6xl mx-auto space-y-8 animate-fadeIn">
+
+  <!-- Title & Scope -->
+  <div class="text-center space-y-2">
+    <h1 class="text-3xl font-extrabold text-white tracking-tight sm:text-4xl">
+      Dual-Fiqh <span class="text-brand-400">Deal Advisor</span>
+    </h1>
+    <p class="text-slate-400 max-w-2xl mx-auto text-sm sm:text-base">
+      Ask modern commercial jurisprudence questions. TijarahAI performs strictly separated RAG searches across the Hanafi and Ahl-e-Hadith knowledge bases.
+    </p>
+  </div>
+
+  <!-- Query Input Box -->
+  <div class="glass-card p-6 space-y-4">
+    <div class="space-y-2">
+      <label class="text-xs font-semibold uppercase tracking-wider text-slate-400">Describe Your Commercial Transaction / Deal</label>
+      <div class="relative">
+        <textarea
+          [(ngModel)]="question"
+          rows="3"
+          placeholder="e.g. Can I take an advance commission before delivering digital services?"
+          class="glass-input w-full text-sm leading-relaxed resize-none"></textarea>
+      </div>
+    </div>
+
+    <div class="flex flex-col sm:flex-row items-center justify-between gap-4">
+      <!-- Sample queries -->
+      <div class="flex flex-wrap items-center gap-1.5 text-xs text-slate-400">
+        <span class="text-slate-500">Suggested:</span>
+        <button
+          *ngFor="let sample of sampleQuestions"
+          (click)="selectSampleQuestion(sample)"
+          class="px-2 py-1 rounded bg-slate-800/80 hover:bg-slate-700 text-slate-300 transition-all duration-200 text-left truncate max-w-xs hover:text-white hover:scale-105 active:scale-95">
+          {{ sample }}
+        </button>
+      </div>
+
+      <!-- Submit Button -->
+      <button
+        (click)="askAdvisor()"
+        [disabled]="isLoading()"
+        class="w-full sm:w-auto bg-gradient-to-r from-brand-600 to-emerald-500 hover:from-brand-500 hover:to-emerald-400 text-white font-semibold py-2.5 px-6 rounded-xl shadow-lg shadow-brand-600/30 transition-all duration-300 flex items-center justify-center space-x-2 disabled:opacity-50 hover:shadow-xl hover:shadow-brand-600/40 active:scale-[0.98] shrink-0">
+        <span *ngIf="isLoading()" class="animate-spin text-lg">⚖️</span>
+        <span>{{ isLoading() ? 'Consulting RAG...' : 'Retrieve Rulings' }}</span>
+      </button>
+    </div>
+  </div>
+
+  <!-- Loading Skeleton -->
+  <div *ngIf="isLoading()" class="space-y-4">
+    <div class="glass-card p-5 animate-pulse">
+      <div class="h-4 bg-slate-800 rounded w-1/3 mb-3"></div>
+      <div class="h-3 bg-slate-800 rounded w-full mb-2"></div>
+      <div class="h-3 bg-slate-800 rounded w-2/3"></div>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+      <div class="glass-card p-6 animate-pulse border-t-4 border-t-emerald-500">
+        <div class="h-5 bg-slate-800 rounded w-1/2 mb-4"></div>
+        <div class="h-3 bg-slate-800 rounded w-full mb-2"></div>
+        <div class="h-3 bg-slate-800 rounded w-3/4 mb-2"></div>
+        <div class="h-3 bg-slate-800 rounded w-5/6"></div>
+      </div>
+      <div class="glass-card p-6 animate-pulse border-t-4 border-t-gold-500">
+        <div class="h-5 bg-slate-800 rounded w-1/2 mb-4"></div>
+        <div class="h-3 bg-slate-800 rounded w-full mb-2"></div>
+        <div class="h-3 bg-slate-800 rounded w-3/4 mb-2"></div>
+        <div class="h-3 bg-slate-800 rounded w-5/6"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Error Banner -->
+  <div *ngIf="errorMessage()" class="p-4 rounded-xl bg-red-950/40 border border-red-800/80 text-red-200 text-sm flex items-center space-x-3 animate-slideDown">
+    <span class="text-xl">⚠️</span>
+    <span>{{ errorMessage() }}</span>
+  </div>
+
+  <!-- Side-by-Side Dual-Fiqh Comparative View -->
+  <div *ngIf="fiqhResponse() as res" class="space-y-6 animate-fadeIn">
+
+    <!-- Top Comparative Synthesis Bar -->
+    <div class="glass-card p-5 bg-gradient-to-r from-slate-900 via-slate-900 to-slate-950 border border-brand-500/30">
+      <div class="flex items-center space-x-2 text-brand-400 font-semibold text-sm mb-2">
+        <span>⚖️</span>
+        <span>Comparative Jurisprudence Synthesis</span>
+      </div>
+      <div class="markdown-content" [innerHTML]="res.comparativeSummary | markdown"></div>
+    </div>
+
+    <!-- Side-by-Side Perspectives Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+
+      <!-- COLUMN 1: HANAFI PERSPECTIVE -->
+      <div class="glass-card p-6 space-y-4 border-t-4 border-t-emerald-500 flex flex-col justify-between hover:shadow-emerald-950/30 hover:shadow-xl transition-all duration-300">
+        <div class="space-y-4">
+
+          <div class="flex items-center justify-between pb-3 border-b border-slate-800">
+            <div class="flex items-center space-x-2">
+              <span class="text-2xl">🏛️</span>
+              <h2 class="text-lg font-bold text-white">Hanafi Perspective</h2>
+            </div>
+            <span class="text-xs px-2.5 py-1 rounded-full bg-emerald-950/80 border border-emerald-500/40 text-emerald-400 font-semibold">
+              {{ res.hanafiPerspective.ruling }}
+            </span>
+          </div>
+
+          <div class="space-y-2">
+            <h3 class="text-xs font-semibold uppercase tracking-wider text-slate-400">Jurisprudential Basis & Reasoning</h3>
+            <div class="markdown-content" [innerHTML]="res.hanafiPerspective.reasoning | markdown"></div>
+          </div>
+
+          <!-- Permissible Conditions -->
+          <div *ngIf="res.hanafiPerspective.permissibleConditions?.length" class="space-y-2">
+            <h3 class="text-xs font-semibold uppercase tracking-wider text-emerald-400">Permissible Conditions</h3>
+            <ul class="space-y-1 text-xs text-slate-300">
+              <li *ngFor="let cond of res.hanafiPerspective.permissibleConditions" class="flex items-start space-x-2">
+                <span class="text-emerald-400 mt-0.5">✔</span>
+                <span>{{ cond }}</span>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Prohibitions -->
+          <div *ngIf="res.hanafiPerspective.prohibitions?.length" class="space-y-2">
+            <h3 class="text-xs font-semibold uppercase tracking-wider text-red-400">Prohibited Elements</h3>
+            <ul class="space-y-1 text-xs text-slate-300">
+              <li *ngFor="let proh of res.hanafiPerspective.prohibitions" class="flex items-start space-x-2">
+                <span class="text-red-400 mt-0.5">✖</span>
+                <span>{{ proh }}</span>
+              </li>
+            </ul>
+          </div>
+
+        </div>
+
+        <!-- Citations Footer -->
+        <div class="pt-4 border-t border-slate-800/80 text-[11px] text-slate-400">
+          <div class="font-semibold text-slate-300 mb-1">Authoritative Citations:</div>
+          <div *ngFor="let cite of res.hanafiPerspective.citations" class="font-mono text-emerald-400/80">
+            • {{ cite }}
+          </div>
+        </div>
+
+      </div>
+
+      <!-- COLUMN 2: AHL AL-HADITH PERSPECTIVE -->
+      <div class="glass-card p-6 space-y-4 border-t-4 border-t-gold-500 flex flex-col justify-between hover:shadow-amber-950/30 hover:shadow-xl transition-all duration-300">
+        <div class="space-y-4">
+
+          <div class="flex items-center justify-between pb-3 border-b border-slate-800">
+            <div class="flex items-center space-x-2">
+              <span class="text-2xl">📖</span>
+              <h2 class="text-lg font-bold text-white">Ahl al-Hadith Perspective</h2>
+            </div>
+            <span class="text-xs px-2.5 py-1 rounded-full bg-amber-950/80 border border-gold-500/40 text-gold-400 font-semibold">
+              {{ res.ahleHadithPerspective.ruling }}
+            </span>
+          </div>
+
+          <div class="space-y-2">
+            <h3 class="text-xs font-semibold uppercase tracking-wider text-slate-400">Jurisprudential Basis & Reasoning</h3>
+            <div class="markdown-content" [innerHTML]="res.ahleHadithPerspective.reasoning | markdown"></div>
+          </div>
+
+          <!-- Permissible Conditions -->
+          <div *ngIf="res.ahleHadithPerspective.permissibleConditions?.length" class="space-y-2">
+            <h3 class="text-xs font-semibold uppercase tracking-wider text-emerald-400">Permissible Conditions</h3>
+            <ul class="space-y-1 text-xs text-slate-300">
+              <li *ngFor="let cond of res.ahleHadithPerspective.permissibleConditions" class="flex items-start space-x-2">
+                <span class="text-emerald-400 mt-0.5">✔</span>
+                <span>{{ cond }}</span>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Prohibitions -->
+          <div *ngIf="res.ahleHadithPerspective.prohibitions?.length" class="space-y-2">
+            <h3 class="text-xs font-semibold uppercase tracking-wider text-red-400">Prohibited Elements</h3>
+            <ul class="space-y-1 text-xs text-slate-300">
+              <li *ngFor="let proh of res.ahleHadithPerspective.prohibitions" class="flex items-start space-x-2">
+                <span class="text-red-400 mt-0.5">✖</span>
+                <span>{{ proh }}</span>
+              </li>
+            </ul>
+          </div>
+
+        </div>
+
+        <!-- Citations Footer -->
+        <div class="pt-4 border-t border-slate-800/80 text-[11px] text-slate-400">
+          <div class="font-semibold text-slate-300 mb-1">Authoritative Citations:</div>
+          <div *ngFor="let cite of res.ahleHadithPerspective.citations" class="font-mono text-gold-400/80">
+            • {{ cite }}
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</div>
