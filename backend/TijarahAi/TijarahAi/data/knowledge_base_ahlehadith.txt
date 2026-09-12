@@ -1,0 +1,851 @@
+================================================================================
+AHLE-HADITH FIQH — BUSINESS TRANSACTIONS RAG KNOWLEDGE BASE
+================================================================================
+
+[SOURCE SCOPE]
+This file is a structured retrieval layer drawn from the two supplied Ahle-Hadith
+PDFs: "Business and Transaction Ahlehadith" and "Business and Transaction 2
+Ahlehadith". The source book is "The Concise Presentation of the Fiqh of the
+Sunnah and the Noble Book" (based primarily on Saheeh hadith as authenticated by
+Shaykh al-Albani). Hadith references and authentication grades are included so
+answers can be traced to the source. This represents the Ahle-Hadith (Salafi)
+madhab position; escalate novel, jurisdiction-specific, or person-specific cases
+to a qualified scholar.
+
+--------------------------------------------------------------------------------
+
+[STANDARD]: General Principles of Business Transactions
+[CORE TOPIC]: The legal basis, encouragement, and ethics of trade and earning
+a livelihood in Islam according to the Ahle-Hadith school.
+
+[PERMISSIBLE CONDITIONS]:
+- Trade and buying/selling are permissible by the Qur'an, Sunnah and consensus
+  of the Muslim Nation. Allah says: "Allah has permitted trading and forbidden
+  interest" (Qur'an 2:275).
+- The basic ruling concerning business transactions is that they are all
+  permissible, as long as they are done with the approval of both parties and
+  they have not been explicitly prohibited by the Lawgiver (Qur'an 4:29).
+- Earning one's living through one's own hands is highly encouraged. The Prophet
+  (peace be upon him) said: "No one consumes any food better than that which was
+  earned by his own hands. The Prophet of Allah Dawood used to eat what his own
+  hands earned." (Bukhari)
+- The Prophet (peace be upon him) said: "It is better for one of you to bring a
+  load of firewood on his back and sell it, than to ask of another who might give
+  him or refuse to give him." (Bukhari, Tirmidhi, Nasa'i — Saheeh per al-Albani,
+  Saheeh al-Jami' no. 7069)
+- There is no harm in wealth as long as one maintains piety (taqwa). The Prophet
+  (peace be upon him) said: "There is no harm in riches for the one who has piety.
+  And health is better for the one who has piety." (Ibn Majah — Saheeh per
+  al-Albani, Saheeh Sunan Ibn Majah no. 1741)
+- Moderation in seeking livelihood is encouraged. The Prophet (peace be upon him)
+  said: "O people, fear Allah and act properly in seeking wealth, for a soul
+  will not die until it exhausts its sustenance, even if it is slow in coming.
+  Fear Allah and act properly in seeking wealth by taking what is permissible
+  and leaving what is forbidden." (Saheeh per al-Albani)
+- Being easy-going in transactions is praised. The Prophet (peace be upon him)
+  said: "May Allah have mercy on the one who is easy-going and generous while
+  buying, while selling and when demanding his rights." (Bukhari — Saheeh per
+  al-Albani, Saheeh al-Jami' no. 4454)
+- Giving respite to one in straitened circumstances is virtuous. The Prophet
+  (peace be upon him) said about a trader who used to excuse debtors: "Therefore,
+  Allah overlooked his sins and forgave him." (Bukhari — Saheeh per al-Albani,
+  Saheeh al-Jami' no. 3495)
+- Seeking blessings in early hours for trade: "O Allah, bless my Nation in its
+  early hours." (Ibn Majah, Tirmidhi, Abu Dawood — Saheeh per al-Albani)
+
+[PROHIBITED / INVALID STRUCTURES]:
+- Honesty is obligatory; deception is forbidden. The Prophet (peace be upon him)
+  found a seller concealing a defect in grains and said: "Whoever deceives is
+  not from us." (Ibn Majah, Abu Dawood, Tirmidhi, Muslim — Saheeh per al-Albani,
+  Irwa' al-Ghaleel no. 1319)
+- The two parties of a sale have the option of cancellation as long as they have
+  not separated. "If they are honest with each other they will be blessed in
+  their transaction. If they concealed or lied, then the blessings in their
+  transactions will have been effaced." (Bukhari, Muslim, Abu Dawood, Tirmidhi,
+  Nasa'i)
+- A Muslim must not sell something defective to his brother without pointing
+  that out to him. (Ibn Majah — Saheeh per al-Albani, Saheeh al-Jami' no. 6705)
+
+[EVIDENCE]:
+- Qur'an: 2:275, 4:29.
+- Hadith of al-Miqdaam on earning (Bukhari, Saheeh al-Jami' no. 5546).
+- Hadith of Abu Hurayrah on selling firewood (Bukhari, Saheeh al-Jami' no. 7069).
+- Hadith on wealth and piety (Ibn Majah, Saheeh Sunan Ibn Majah no. 1741).
+- Hadith of Jabir on moderation (Saheeh per al-Albani).
+- Hadith of Hakeem ibn Hizam on honesty (Bukhari, Muslim).
+
+--------------------------------------------------------------------------------
+
+[STANDARD]: Forbidden Business Transactions
+[CORE TOPIC]: Transactions explicitly prohibited by the Lawgiver: overly risky
+transactions (gharar), selling what one does not possess, selling before taking
+possession, undercutting, al-'eenah, and payments over time with price increase.
+
+[PERMISSIBLE CONDITIONS]:
+- The prohibition of overly-risky transactions (gharar) is a great principle of
+  the principles of business transactions. Imam an-Nawawi explained that
+  countless issues are covered by it: sale of a runaway slave, of something that
+  does not exist, of something unknown, of something one cannot deliver, of
+  something not completely owned by the seller, of fish in a large body of water,
+  of milk in an animal's udder, of a fetus in an animal, of an unspecified part
+  of a heap, etc. All such sales are void.
+- If due to some need, people must venture into risk-bearing transactions which
+  cannot be avoided except with difficulty, and the amount of risk is miniscule,
+  then the transaction is permissible. For example, buying a stuffed dish even
+  if one does not see what it is stuffed with is permissible by consensus, while
+  buying the stuffing by itself would not be permissible.
+
+[PROHIBITED / INVALID STRUCTURES]:
+- 1. Overly risky transactions (gharar): The Prophet (peace be upon him)
+  prohibited bai' al-hasah (pebble sale) and overly-risky transactions.
+  (Muslim, Tirmidhi, Abu Dawood, Ibn Majah, Nasa'i — Saheeh per al-Albani,
+  Mukhtasar Saheeh Muslim no. 939, Irwa' al-Ghaleel no. 1294)
+- Al-mulamasah transaction (touching a garment without inspecting it) and
+  al-munabadhah transaction (flinging a garment to each other without
+  inspection) are both prohibited. (Muslim — Saheeh per al-Albani, Mukhtasar
+  Saheeh Muslim no. 938)
+- Stud fees are prohibited. Ibn 'Umar said the Prophet (peace be upon him)
+  forbade stud fees. (Bukhari, Abu Dawood, Tirmidhi — Saheeh per al-Albani,
+  Mukhtasar Saheeh Muslim no. 1292)
+- Selling the unborn fetus (habal al-hablah) is prohibited. (Bukhari, Muslim,
+  Abu Dawood, Tirmidhi, Nasa'i, Ibn Majah)
+- 2. Selling what one does not possess: Hakeem ibn Hazim asked the Prophet about
+  selling something he does not have. The Prophet replied: "Do not sell that
+  which you do not have." (Ibn Majah, Tirmidhi, Abu Dawood — Saheeh per
+  al-Albani, Irwa' al-Ghaleel no. 1292)
+- 3. Selling something before taking possession: Ibn 'Abbas narrated that the
+  Messenger of Allah said: "Whoever buys foodstuff must not sell them until he
+  takes possession of them." Ibn 'Abbas added: "I reckon that everything is
+  analogous to foodstuff." (Bukhari, Muslim, Abu Dawood, Nasa'i, Tirmidhi)
+- 4. Selling against one's brother (undercutting): "Do not undercut one another
+  in business transactions." (Bukhari, Muslim, Ibn Majah) "A Muslim should not
+  make a purchase in opposition to his brother." (Muslim — Saheeh per al-Albani,
+  Irwa' al-Ghaleel no. 1298)
+- 5. Al-'Eenah transaction (buying on credit then selling back to the original
+  seller for a lower cash price — a riba circumvention device). Ibn 'Umar
+  narrated the Prophet warned: "If you begin to participate in al-'eenah... Allah
+  will inflict upon you a disgrace." (Abu Dawood — Saheeh per al-Albani, Saheeh
+  al-Jami' no. 423)
+- 6. Two transactions in one (hai' al-taqseet with riba): "Whoever has made a
+  deal with two transactions in one shall receive the lesser of the two or riba
+  (interest)." (Abu Dawood — Hasan per al-Albani, Saheeh al-Jami' no. 6116)
+
+[EVIDENCE]:
+- Hadith of Abu Hurayrah on gharar (Muslim, Mukhtasar no. 939).
+- Hadith on mulamasah/munabadhah (Bukhari, Muslim).
+- Hadith of Hakeem ibn Hazim on selling what one does not possess (Irwa' no. 1292).
+- Hadith of Ibn 'Abbas on possession before resale (Bukhari, Muslim).
+- Hadith on undercutting (Bukhari, Muslim).
+- Hadith on al-'eenah (Abu Dawood, Saheeh al-Jami' no. 423).
+- Hadith on two-in-one deals (Abu Dawood, Saheeh al-Jami' no. 6116).
+
+--------------------------------------------------------------------------------
+
+[STANDARD]: Items Prohibited to Sell
+[CORE TOPIC]: Specific items and categories whose sale is forbidden: alcohol,
+carrion, swine, idols, dogs, images of living creatures, unripe produce.
+
+[PROHIBITED / INVALID STRUCTURES]:
+- 1. Alcohol: 'A'ishah said: "When the last verses of Soorah al-Baqarah were
+  revealed, the Prophet went out and said, 'Trade in alcohol has been
+  forbidden.'" (Bukhari, Muslim, Abu Dawood, Nasa'i)
+- 2. Carrion, Swine and Idols: "Allah and His Messenger have forbidden the sale
+  of alcohol, carrion, swine and idols." Including the fat of carrion — "No, it
+  is forbidden." The Prophet also said: "May Allah destroy the Jews. Allah
+  forbade them its fat but they collected it together, sold it and devoured its
+  price." (Bukhari, Muslim, Tirmidhi, Abu Dawood, Ibn Majah, Nasa'i)
+- 3. Dogs: Abu Mas'ood al-Ansari narrated that the Messenger of Allah prohibited
+  the price of a dog, the wages of a prostitute and the earnings of a soothsayer.
+  (Bukhari, Muslim, Abu Dawood, Tirmidhi, Ibn Majah, Nasa'i)
+- 4. Pictures or Statues Containing Creatures with Souls: The Prophet said:
+  "Whoever makes a picture will be punished by Allah until he blows a soul into
+  it and he will never be able to do so." Ibn 'Abbas advised: "If you insist on
+  doing such work, then make things like trees — everything that does not contain
+  a soul." (Bukhari, Muslim, Nasa'i)
+- 5. Dates/Fruits Before they Become Ripe: The Prophet forbade the sale of dates
+  until their ripeness had become apparent. "Don't you see that if Allah keeps
+  the fruits from ripening, how will you take the money from your brother?"
+  (Bukhari, Muslim, Nasa'i — Saheeh per al-Albani, Saheeh al-Jami' no. 6928)
+- 6. Crops Before Grains become Husked: The Prophet forbade the sale of date-palms
+  until they ripened and ears of corn until they were white and free from diseases.
+  He forbade that for both the buyer and the seller. (Muslim, Abu Dawood,
+  Tirmidhi, Nasa'i — Saheeh per al-Albani, Mukhtasar no. 917)
+
+[EVIDENCE]:
+- Hadith of 'A'ishah on alcohol trade (Bukhari, Muslim).
+- Hadith of Jabir on carrion/swine/idols (Bukhari, Muslim).
+- Hadith on dog prices (Bukhari, Muslim).
+- Hadith of Ibn 'Abbas on images (Bukhari, Muslim).
+- Hadith of Anas on unripe dates (Bukhari, Saheeh al-Jami' no. 6928).
+- Hadith of Ibn 'Umar on unripe crops (Muslim, Mukhtasar no. 917).
+
+--------------------------------------------------------------------------------
+
+[STANDARD]: Options in Sale Contracts (Khiyar)
+[CORE TOPIC]: The right of cancellation after a sale: session option, stipulated
+option, and option due to defect.
+
+[PERMISSIBLE CONDITIONS]:
+- 1. Session option (khiyar al-majlis): Both contracting parties have an option
+  to cancel the contract from the time the contract is concluded until they
+  separate from one another. Ibn 'Umar narrated: "If two people make a sale,
+  then each of them has the option as long as they have not parted." (Bukhari,
+  Muslim, Nasa'i)
+- 2. Stipulated option: Both parties or one party may lay down a stipulation
+  that they will have the option for a specified period of time to cancel the
+  agreement. This is valid even if the time period stated is long. (Bukhari,
+  Muslim, Nasa'i)
+- 3. Option due to defect: If a person purchases an item and does not realize it
+  is defective until after departure, he has the right to return the item to the
+  seller. Abu Hurayrah reported: "Whoever bought a goat that was left unmilked
+  [to make it seem more productive] and then milks it has a choice: if pleased,
+  keep it; if displeased, return it with a sa' of dates for the milk consumed."
+  (Bukhari, Muslim, Abu Dawood, Nasa'i)
+
+[PROHIBITED / INVALID STRUCTURES]:
+- It is forbidden to hurriedly leave the session out of fear that the other party
+  will cancel the transaction. "It is not permissible for one of them to separate
+  from the other for fear that one may demand the bargain be rescinded." (Abu
+  Dawood, Tirmidhi, Nasa'i — Saheeh per al-Albani, Saheeh al-Jami' no. 2895)
+- Do not leave camels or goats unmilked to make it seem they produce more milk
+  (an-najsh / at-tasriyah). (Bukhari, Saheeh al-Jami' no. 7347)
+
+[EVIDENCE]:
+- Hadith of Ibn 'Umar on session option (Bukhari, Muslim).
+- Hadith of 'Amr ibn Shu'ayb on leaving the session (Saheeh al-Jami' no. 2895).
+- Hadith of Abu Hurayrah on musarrah (Bukhari, Muslim).
+
+--------------------------------------------------------------------------------
+
+[STANDARD]: Riba (Interest/Usury)
+[CORE TOPIC]: The absolute prohibition of riba, its categories (riba
+an-nasee'ah and riba al-fadl), the six ribawi commodities, and exchange rules.
+
+[PERMISSIBLE CONDITIONS]:
+- If items of the same genus are exchanged (gold for gold, dates for dates, etc.)
+  they must be equivalent in weight or amount, regardless of any differences in
+  quality, and the exchange must take place on the spot. (Muslim, Mukhtasar no.
+  939)
+- If one wants to exchange one commodity for another of a different type (e.g.
+  gold for silver, or barley for wheat), this is permissible as long as the
+  exchange takes place at once (hand to hand), and the quantities may differ.
+  (Muslim, Irwa' al-Ghaleel vol. 5 p. 195)
+- If one trades any of the six commodities for another which has a different
+  purpose (e.g. gold for barley, or silver for salt), it is allowed for the
+  quantities to differ as well as for the payment to be made over time. The
+  Prophet bought foodstuff from a Jew on credit and gave him his shield as
+  collateral. (Bukhari, Irwa' al-Ghaleel no. 1393)
+- Al-'Araya exception: The poor who do not have date-palms are allowed to sell
+  the fresh dates on the trees in exchange for an estimated amount of dried
+  dates. (Muslim, Bukhari)
+- It is not allowed to exchange a riba commodity with its own genus combined with
+  something else (e.g. gold mixed with pearls for gold alone). "It should not be
+  sold until its components have been separated." (Abu Dawood, Ibn Majah, Nasa'i,
+  Tirmidhi — Saheeh per al-Albani, Irwa' al-Ghaleel no. 1356)
+
+[PROHIBITED / INVALID STRUCTURES]:
+- Riba is forbidden by the Qur'an, Sunnah and consensus of the Nation.
+  (Qur'an 2:275-279, 2:276)
+- The Prophet said: "Avoid the seven destructive sins" — and listed consuming
+  interest among them. (Bukhari, Muslim, Abu Dawood, Nasa'i)
+- The Prophet cursed the receiver of interest, the one who gives it, the one
+  who records it and its two witnesses, saying: "They are all the same."
+  (Muslim — Saheeh per al-Albani, Mukhtasar no. 955)
+- "Riba has seventy-three varieties, the slightest of which is like a man having
+  intercourse with his mother." (al-Hakim — Saheeh per al-Albani, Saheeh
+  al-Jami' no. 3539)
+- "One gold coin of riba that a person knowingly consumes is worse than
+  thirty-six acts of fornication." (Ahmad — Saheeh per al-Albani, Saheeh
+  al-Jami' no. 3375)
+- Riba an-Nasee'ah: A stipulated increase in payments received by the creditor
+  from the debtor due to delaying the payment. Forbidden by Qur'an, Sunnah and
+  consensus.
+- Riba al-Fadl: Exchanging money for money or food for food in a spot transaction
+  but with unequal values. Forbidden by Sunnah and consensus.
+- The six riba commodities: Gold, silver, wheat, barley, dates, and salt.
+  "Gold exchanged for gold, silver for silver, wheat for wheat, barley for
+  barley, dates for dates and salt for salt must be for the same amounts,
+  equivalent and hand to hand." (Muslim — Saheeh per al-Albani)
+- "Do not sell gold for gold unless equivalent in weight... do not sell a lesser
+  amount for a greater amount or vice-versa... do not sell gold or silver not
+  present at the moment of exchange for gold or silver that is present."
+  (Bukhari, Muslim, Nasa'i)
+- It is not permissible to sell fresh dates for dry dates due to weight loss
+  upon drying. (Abu Dawood, Irwa' al-Ghaleel no. 1352)
+
+[EVIDENCE]:
+- Qur'an: 2:275-279, 2:276, 22:5.
+- Hadith of Abu Hurayrah on seven destructive sins (Bukhari, Muslim).
+- Hadith of Jabir on cursing riba participants (Muslim, Saheeh al-Jami' no. 5090).
+- Hadith of 'Ubadah ibn as-Samit on six commodities (Muslim, Mukhtasar no. 939).
+- Hadith of Abu Sa'eed on equivalent exchange (Bukhari, Muslim).
+- Hadith of 'Umar on gold/silver exchange (Bukhari, Muslim).
+- Hadith of Sa'd on fresh vs dried dates (Irwa' no. 1352).
+- Hadith of Fadalah on mixed gold/pearls (Irwa' no. 1356).
+
+--------------------------------------------------------------------------------
+
+[STANDARD]: Sharecropping (al-Muzara'ah) and Tree-Tending (al-Musaqah)
+[CORE TOPIC]: Farming arrangements where land or trees are given to another to
+cultivate/tend in exchange for a share of the produce.
+
+[PERMISSIBLE CONDITIONS]:
+- Sharecropping is permissible. The Prophet had the people of Khaybar work the
+  fields with each getting half the produce. (Bukhari, Muslim, Abu Dawood, Ibn
+  Majah, Tirmidhi)
+- All Emigrants in Madeenah used to cultivate the land of the Ansar for a third
+  or fourth of the yield. Major Companions including 'Ali, S'ad, Ibn Mas'ood,
+  'Umar ibn 'Abdul-'Azeez, and the families of Abu Bakr, 'Umar, and 'Ali all
+  did sharecropping.
+- Either the land owner, the sharecropper, or both may provide the capital needs
+  (seeds, tools, etc.). 'Umar would make agreements with different provisions
+  for who supplied seeds. (Bukhari)
+- Al-Musaqah (tree-tending): Giving another person trees to attend, water and
+  care for in exchange for half or a specific portion of their yield. The Prophet
+  had the people of Khaybar do this. (Bukhari, Muslim, Abu Dawood)
+
+[PROHIBITED / INVALID STRUCTURES]:
+- It is not allowed to sharecrop by saying that the owner will receive the yield
+  of a specific portion of the land while the sharecropper receives the yield
+  of another specific portion. (Bukhari, Irwa' al-Ghaleel vol. 5 p. 299)
+- It is not allowed to say to the land owner: "I will get such and such produce
+  regardless of the total produce."
+- Renting land for uncertain portions of its produce is prohibited. However, it
+  is permissible to rent land for gold, silver coins, or anything definite and
+  reliable as payment. (Muslim, Abu Dawood, Nasa'i — Saheeh per al-Albani)
+
+[EVIDENCE]:
+- Hadith of Ibn 'Umar on Khaybar (Bukhari, Muslim).
+- Statements of Bukhari on Companions' practice.
+- Hadith of Rafi' ibn Khadeej on impermissible forms (Bukhari, Irwa' vol. 5).
+- Hadith of Abu Hurayrah on Ansar and Emigrants tree-sharing (Bukhari, Muslim,
+  Irwa' no. 1471).
+
+--------------------------------------------------------------------------------
+
+[STANDARD]: Reviving Dead Lands
+[CORE TOPIC]: Cultivating unclaimed, uncultivated land and the rights established
+by doing so (similar to homesteading).
+
+[PERMISSIBLE CONDITIONS]:
+- "Whoever cultivates land that does not belong to anyone has the most right to
+  it." 'Umar gave that ruling during his caliphate. (Bukhari — Saheeh per
+  al-Albani, Saheeh al-Jami' no. 6058)
+- "If someone revives a dead land, it will be for him." (Tirmidhi — Saheeh per
+  al-Albani, Saheeh al-Jami' no. 5975)
+- "If anyone surrounds a land with a wall, it belongs to him." (Abu Dawood —
+  Saheeh per al-Albani, Saheeh al-Jami' no. 5952)
+
+[EVIDENCE]:
+- Hadith of 'A'ishah on cultivating unclaimed land (Bukhari, Saheeh al-Jami'
+  no. 6058).
+- Hadith of Jabir on reviving dead land (Tirmidhi, Saheeh al-Jami' no. 5975).
+- Hadith on surrounding land with a wall (Abu Dawood, Saheeh al-Jami' no. 5952).
+
+--------------------------------------------------------------------------------
+
+[STANDARD]: Leasing and Hiring (al-Ijarah)
+[CORE TOPIC]: Renting property, hiring workers, the obligation to pay wages,
+and impermissible forms of hiring.
+
+[PERMISSIBLE CONDITIONS]:
+- Al-Ijarah (leasing/hiring) is sanctioned by the Qur'an, Sunnah and consensus.
+  Qur'an references: 65:6 (wages for wet-nurses), 28:26 (hiring the strong and
+  trustworthy), 28:27 (serving for a period), 18:77 (taking wages for work).
+- Anything that has a usufruct value while retaining its sound state is
+  permissible to be hired or rented, as long as there is no specific prohibition
+  in Islamic Law.
+- The object to be hired must be specified, the payment must be specified, and
+  the period of time/nature of work must be specified. (Qur'an 28:27)
+- Renting land for gold, silver, or anything definite and reliable is
+  permissible. (Muslim, Abu Dawood, Nasa'i — Saheeh per al-Albani, Irwa'
+  al-Ghaleel vol. 5 p. 302)
+- 'A'ishah narrated that the Prophet and Abu Bakr hired a guide from the tribe
+  of ad-Dayl during their emigration. (Bukhari — Saheeh per al-Albani, Irwa'
+  no. 1489)
+
+[PROHIBITED / INVALID STRUCTURES]:
+- Workers' wages must be paid promptly: "Give the wage-earner his wages before
+  his sweat dries." (Ibn Majah — Saheeh per al-Albani, Saheeh Sunan Ibn Majah
+  no. 198)
+- The sin of not paying workers' wages: "Allah said: 'I will be a disputant
+  against three persons on the Day of Resurrection: a man who makes a covenant
+  with Me and then commits treachery; a man who sells a free person and consumes
+  his price; and a man who hires a wage-earner and gets the full work from him
+  but does not give him his wages.'" (Bukhari — Hasan per al-Albani, Irwa' no.
+  1489)
+- Forcing maids into prostitution for gain is forbidden (Qur'an 24:33).
+- The price of a dog, the wages of a prostitute, and the earnings of a
+  soothsayer are all prohibited. (Bukhari, Muslim)
+- Stud fees are prohibited. (Bukhari, Abu Dawood, Tirmidhi)
+- Living off the Qur'an for worldly gain: "Read the Qur'an and do not live off
+  of it nor amass a lot by it." (Ahmad — Saheeh per al-Albani, Saheeh al-Jami'
+  no. 1168)
+
+[EVIDENCE]:
+- Qur'an: 65:6, 28:26-27, 18:77, 24:33.
+- Hadith of Ibn 'Umar on wages (Saheeh Sunan Ibn Majah no. 198).
+- Hadith of Abu Hurayrah on Allah's disputants (Bukhari).
+- Hadith of 'A'ishah on hiring a guide (Bukhari, Irwa' no. 1489).
+- Hadith on impermissible wages (Bukhari, Muslim).
+
+--------------------------------------------------------------------------------
+
+[STANDARD]: Partnerships (ash-Sharikah)
+[CORE TOPIC]: The Islamic partnership, its legality, profit-sharing, and
+general rules of partnership in the Ahle-Hadith tradition.
+
+[PERMISSIBLE CONDITIONS]:
+- A partnership is where two or more persons combine together to obtain profit.
+  It can even occur without intent, such as when one inherits such a situation.
+  (Fath al-Bari, vol. 5 p. 129)
+- Partnership is established by the Qur'an: "Verily, many partners oppress one
+  another, except those who believe and do righteous good deeds, and they are
+  few." (Qur'an 38:24) Also: partners in inheritance (Qur'an 4:12).
+- As-Sa'ib said to the Prophet: "You were my partner in the pre-Islamic Days
+  and you were the best of partners. You would never oppose me or argue with
+  me." (Ibn Majah — Saheeh per al-Albani, Saheeh Sunan Ibn Majah no. 1853)
+- The Islamic partnership comes into existence by the approval of two or more
+  who agree that each will contribute a specific amount of wealth seeking
+  earnings and profit. Each will receive from the profits according to the
+  percentage contributed. By the same proportion they will be responsible for the
+  capital.
+- It is permissible for partners to agree that each will receive the same
+  percentage of profit even though the percentage of contributions differed,
+  as trade is based on mutual approval. (Ash-Shawkani, as-Sail al-Jarrar)
+
+[EVIDENCE]:
+- Qur'an: 38:24, 4:12.
+- Hadith of as-Sa'ib (Ibn Majah, Saheeh Sunan Ibn Majah no. 1853).
+- Ash-Shawkani's ruling in as-Sail al-Jarrar vol. 3 pp. 246-248.
+
+--------------------------------------------------------------------------------
+
+[STANDARD]: Silent Partnership (al-Mudarabah)
+[CORE TOPIC]: A contract where one provides capital and another provides labour
+for trade, with profits divided by mutual agreement. Also known as qarad.
+
+[PERMISSIBLE CONDITIONS]:
+- Al-Mudarabah is a contract between two parties where one gives money to the
+  other to trade/do business with, and the profit is divided between them
+  according to what they agree upon. (Qur'an 73:20)
+- Ibn al-Mundhir wrote in al-Ijma' (p. 124): "The scholars all agree that
+  qarad (silent partnership) by contributing only cash is permissible. They also
+  all agree that the labourer can give any condition concerning the distribution
+  of profits that they agree upon, whether it be one-third, one-half or
+  whatever, as long as it is something known and a fixed portion."
+- The Companions practiced this arrangement. The story of 'Abdullah and
+  'Ubaydullah, sons of 'Umar, who received money from Abu Moosa to trade with
+  and were made to share the profit with 'Umar as a silent partnership, is
+  narrated by Malik and al-Bayhaqi. (Saheeh per al-Albani, Irwa' al-Ghaleel
+  vol. 5 p. 291)
+- The labourer is a trustee and is not responsible for the capital unless he
+  transgresses customary behaviour or contravenes the agreement. (Ibn al-Mundhir,
+  al-Ijma' p. 125)
+- The owner of the capital may prohibit the labourer from selling on credit. If
+  the labourer does sell on credit against this prohibition, he is liable for
+  that money.
+- Hakeem ibn Hizam used to stipulate upon his labourer: "Do not use my money
+  to purchase any animals, do not carry it over the seas and do not stay with
+  it in a flooded valley. If you do any of those, you are liable for my money."
+  (ad-Daraqutni, al-Bayhaqi — Saheeh per al-Albani, Irwa' vol. 5 p. 293)
+
+[EVIDENCE]:
+- Qur'an: 73:20.
+- Consensus recorded by Ibn al-Mundhir, al-Ijma' pp. 124-125.
+- Narration of 'Umar's sons and Abu Moosa (Malik, al-Bayhaqi, Irwa' vol. 5
+  p. 291).
+- Stipulation of Hakeem ibn Hizam (Irwa' vol. 5 p. 293).
+
+--------------------------------------------------------------------------------
+
+[STANDARD]: Advance Payment / Forward Purchase (as-Salam / as-Salaf)
+[CORE TOPIC]: Purchasing by advanced payment of described merchandise that the
+seller must procure at a later date.
+
+[PERMISSIBLE CONDITIONS]:
+- As-Salam is sanctioned by the Qur'an: "O you who believe! When you contract
+  a debt for a fixed period, write it down." (Qur'an 2:282)
+- Ibn 'Abbas stated: "I bear witness that a guaranteed forward payment for a
+  fixed period has been permitted by Allah in His Book." (al-Hakim, al-Bayhaqi —
+  Saheeh per al-Albani, Irwa' al-Ghaleel no. 1369)
+- When the Prophet came to Madeenah, people dealt in future purchases for dates
+  for two and three years. The Prophet said: "Whoever makes a forward purchase
+  of anything must do so for a specified measurement, specified weight and for
+  a specified period of time." (Bukhari, Muslim, Tirmidhi, Abu Dawood, Ibn
+  Majah, Nasa'i)
+- It is not a condition that the seller actually owns the merchandise at the
+  time of the advance payment. The Companions used to pay in advance to the
+  peasants of Greater Syria for wheat, barley and olive oil for a specified
+  measure to be delivered in a known period, without asking whether they had
+  standing crops. (Bukhari, Abu Dawood, Nasa'i, Ibn Majah — Saheeh per
+  al-Albani, Irwa' no. 1370)
+
+[EVIDENCE]:
+- Qur'an: 2:282.
+- Hadith of Ibn 'Abbas on salam (Bukhari, Muslim).
+- Hadith of 'Abdullah ibn Abu Awfa on advance payment practice (Bukhari, Irwa'
+  no. 1370).
+
+--------------------------------------------------------------------------------
+
+[STANDARD]: Loans (al-Qard)
+[CORE TOPIC]: The virtue of giving loans, warnings about debt, obligation to
+repay, and the prohibition of interest-bearing loans.
+
+[PERMISSIBLE CONDITIONS]:
+- Giving loans is virtuous: "Whoever relieves a believer's distress of the
+  distressful aspects of this world, Allah will rescue him from a difficulty of
+  the Hereafter." (Muslim, Tirmidhi, Abu Dawood — Saheeh per al-Albani,
+  Mukhtasar no. 1888)
+- "No Muslim gives to another Muslim twice [i.e. lends twice] except that it
+  will be like giving him charity once." (Ibn Majah — Hasan per al-Albani,
+  Irwa' al-Ghaleel no. 1389)
+- Repaying debt in the best manner is commendable: The Prophet received back
+  a better camel than the one lent, saying: "The best among you is he who repays
+  others in the best manner (generously)." (Bukhari, Muslim, Tirmidhi, Nasa'i)
+- Seeking one's due should be done with decency: "Whoever demands a right
+  should demand it with decency, whether it is fulfilled or not." (Ibn Majah —
+  Saheeh per al-Albani, Saheeh Sunan Ibn Majah no. 1965)
+- Giving respite to one in straitened circumstances: "And if the debtor is in
+  a hard time, then grant him time till it is easy for him to repay." (Qur'an
+  2:280) "Whoever would be pleased to have Allah save him from a distress on
+  the Day of Resurrection should relieve one in straitened circumstances or
+  completely remove his debt." (Ibn Majah — Saheeh per al-Albani)
+
+[PROHIBITED / INVALID STRUCTURES]:
+- Strong warnings about being in debt: "Whosoever's soul leaves his body while
+  he is free of three things will enter Paradise: arrogance, treachery and debt."
+  (Ibn Majah, Tirmidhi — Saheeh per al-Albani, Saheeh Sunan Ibn Majah no. 1956)
+- "The soul of a believer is suspended due to his debt until someone fulfills it
+  on his behalf." (Tirmidhi — Saheeh per al-Albani, Saheeh al-Jami' no. 6779)
+- Even martyrdom does not cancel debt — Gabriel informed the Prophet of this.
+  (Muslim, Tirmidhi, Nasa'i — Saheeh per al-Albani, Irwa' no. 1197)
+- Taking people's wealth without intending to repay: "Whoever takes the wealth
+  of the people intending to repay it, Allah will repay it on his behalf.
+  Whoever takes it intending to destroy it, then Allah will destroy him."
+  (Bukhari — Saheeh per al-Albani, Saheeh al-Jami' no. 598)
+- "Anyone who takes a loan and is not intending to repay it will meet Allah as
+  a thief." (Ibn Majah — Hasan Saheeh per al-Albani, Saheeh Sunan Ibn Majah
+  no. 1954)
+- Delaying repayment when one has the means is wrongdoing: "The delaying of
+  repayment by one who has the means is a form of dhulm (wrongdoing)." (Bukhari,
+  Muslim, Abu Dawood, Tirmidhi, Nasa'i, Ibn Majah)
+- Every loan that entails a benefit contains interest. 'Abdullah ibn Salam
+  warned: "One of the varieties of riba is for someone to make a loan for a
+  period of time. When that time is reached, he gives him his money with a
+  receptacle containing a gift. Beware of that receptacle and what it contains."
+  (Bukhari, al-Bayhaqi — Saheeh per al-Albani, Irwa' vol. 5 p. 235)
+
+[EVIDENCE]:
+- Qur'an: 2:280, 4:58.
+- Hadith of Abu Hurayrah on relieving distress (Muslim, Mukhtasar no. 1888).
+- Hadith on debt and soul (Tirmidhi, Saheeh al-Jami' no. 6779).
+- Hadith on repaying generously (Bukhari, Muslim).
+- Hadith on loan-with-gift as riba (Bukhari, Irwa' vol. 5 p. 235).
+
+--------------------------------------------------------------------------------
+
+[STANDARD]: Pawning (ar-Rahn)
+[CORE TOPIC]: Pledging collateral for a loan, its permissibility, and rules
+regarding the use of the pawned item.
+
+[PERMISSIBLE CONDITIONS]:
+- Pawning is sanctioned by the Qur'an: "And if you are on a journey and cannot
+  find a scribe, then let there be a pledge taken." (Qur'an 2:283) — but it
+  is permissible even while not travelling.
+- 'A'ishah narrated that the Prophet bought foodstuff from a Jew on credit and
+  gave him his shield as collateral. (Bukhari — Saheeh per al-Albani, Irwa'
+  al-Ghaleel no. 1393)
+- If the pawned item is an animal that can be ridden or milked, the pawnbroker
+  can ride the animal or milk it if he feeds it and maintains it. "The pledged
+  animal can be ridden if it is pledged as long as the pawnbroker provides for
+  it and the milk can be drunk as long as the pawnbroker provides for it."
+  (Bukhari, Abu Dawood, Tirmidhi, Ibn Majah — Saheeh per al-Albani, Saheeh
+  al-Jami' no. 3962)
+
+[PROHIBITED / INVALID STRUCTURES]:
+- It is not permissible for the pawnbroker to use what has been pawned with him
+  (other than the animal exception), because any loan that entails benefit is
+  a form of riba.
+- A "Muslim pawnbroker" makes a loan and takes an item as collateral but does
+  NOT charge interest (unlike conventional pawnbroking).
+
+[EVIDENCE]:
+- Qur'an: 2:283.
+- Hadith of 'A'ishah on the Prophet's shield (Bukhari, Irwa' no. 1393).
+- Hadith of Abu Hurayrah on riding/milking pawned animals (Bukhari, Saheeh
+  al-Jami' no. 3962).
+
+--------------------------------------------------------------------------------
+
+[STANDARD]: Debt Transfer (al-Hawalah)
+[CORE TOPIC]: Transferring a debt from one person to another.
+
+[PERMISSIBLE CONDITIONS]:
+- If a person is in debt and can have another who has the means take over the
+  debt, it is obligatory on the creditor to accept the transfer as long as the
+  new debtor has the means.
+- The Prophet said: "Delay in payment by one of means is a form of wrongdoing.
+  If one of you has his debt transferred to a rich person, let him accept the
+  transfer." (Ibn Majah — Saheeh per al-Albani, Saheeh al-Jami' no. 5876)
+
+[EVIDENCE]:
+- Hadith on debt transfer (Ibn Majah, Saheeh al-Jami' no. 5876).
+
+--------------------------------------------------------------------------------
+
+[STANDARD]: Depositing for Safekeeping (al-Wadee'ah)
+[CORE TOPIC]: Depositing something with someone for safekeeping and the
+liability rules.
+
+[PERMISSIBLE CONDITIONS]:
+- If a Muslim asks his brother to deposit something with him for safekeeping,
+  it is recommended to accept if he has the means to safeguard it.
+- It is obligatory to return the deposited item whenever the depositor requests
+  it. (Qur'an 4:58)
+- "Return the trust to the one who entrusted you." (Tirmidhi, Abu Dawood —
+  Saheeh per al-Albani, Saheeh al-Jami' no. 240)
+- The one entrusted with a deposit is NOT liable unless he was negligent. "If
+  one accepts a deposit, there is no liability upon him." (Ibn Majah — Hasan
+  per al-Albani, Saheeh Sunan Ibn Majah no. 1945, Irwa' no. 1547)
+- "There is no liability upon the one who accepts a trust." (ad-Daraqutni,
+  al-Bayhaqi — Hasan per al-Albani, Saheeh al-Jami' no. 7518)
+- 'Umar ibn al-Khattab repaid a depositor for a deposit that had been stolen
+  from among his wealth — understood as meaning he was negligent and therefore
+  liable. (al-Bayhaqi, as-Sunan al-Kubra vol. 6 p. 289)
+
+[EVIDENCE]:
+- Qur'an: 4:58.
+- Hadith on returning trusts (Saheeh al-Jami' no. 240).
+- Hadith on no liability for trustee (Saheeh al-Jami' no. 7518).
+
+--------------------------------------------------------------------------------
+
+[STANDARD]: Lending Items at No Charge (al-'Ariyah)
+[CORE TOPIC]: Allowing another to use an item without any payment or
+compensation, and the obligation to return it.
+
+[PERMISSIBLE CONDITIONS]:
+- Lending is a commendable act. "Help you one another in piety and
+  righteousness." (Qur'an 5:2)
+- "Allah is helping the servant as long as the servant is helping his brother."
+  (Muslim, Tirmidhi, Abu Dawood — Saheeh per al-Albani, Mukhtasar no. 1888)
+- It is obligatory to return the borrowed item. "Verily! Allah commands that you
+  should render back the trusts to those to whom they are due." (Qur'an 4:58)
+- The borrower is a trustee; there is no liability unless he is negligent or if
+  the owner lays down such a condition. The Prophet said to Ya'la: "Is it a loan
+  with a guarantee on it or a loan simply to be paid back?" He replied: "A loan
+  to be paid back." (Abu Dawood — Saheeh per al-Albani, Saheeh Sunan Abi Dawood
+  no. 630, Silsilat as-Saheehah no. 3045)
+
+[PROHIBITED / INVALID STRUCTURES]:
+- Refusing small kindnesses (al-ma'un) is censured by Allah: "So woe unto those
+  performers of prayers, who delay their prayer, those who do good deeds only to
+  be seen, and refuse small kindnesses." (Qur'an 107:4-7)
+
+[EVIDENCE]:
+- Qur'an: 5:2, 4:58, 107:4-7.
+- Hadith on helping one's brother (Muslim, Mukhtasar no. 1888).
+- Hadith of Ya'la on guaranteed vs. simple loan (Abu Dawood, Silsilat no. 3045).
+
+--------------------------------------------------------------------------------
+
+[STANDARD]: Lost and Found (al-Luqatah)
+[CORE TOPIC]: Rules for finding lost wealth, animals, and items; obligations
+of the finder.
+
+[PERMISSIBLE CONDITIONS]:
+- If someone finds lost wealth, he must note its type and amount, take a
+  trustworthy person as a witness, safeguard the wealth, and announce it for
+  one year. If the owner claims it by properly identifying its signs, he must be
+  given the wealth. Otherwise, the finder may benefit from it. (Bukhari, Muslim,
+  Tirmidhi, Ibn Majah, Abu Dawood)
+- "Whoever finds a lost item should have one or two trustworthy people witness
+  it. Then he should not change it or conceal it. If its owner comes, he has the
+  most right to it." (Ibn Majah, Abu Dawood — Saheeh per al-Albani, Saheeh
+  Sunan Ibn Majah no. 2032)
+- Lost sheep/goat: The finder should take the animal and announce. If no owner
+  comes, the finder becomes the owner: "It is going to be for you, your brother
+  or the wolf." (Bukhari, Muslim)
+- Lost camel: One should NOT take a lost camel. "What do you have to do with it?
+  It has its feet, its supply of water and it can reach places of water and eat
+  shrubbery." (Bukhari, Muslim)
+- Edible or insignificant items found on the path may be taken without
+  announcement. The Prophet said about some dates: "If I did not fear that they
+  had been given in charity, I would have eaten them." (Bukhari, Muslim)
+- Lost items in the precincts of the inviolable mosques (Makkah) can only be
+  picked up if they are to be announced perpetually. (Bukhari — Saheeh per
+  al-Albani, Saheeh al-Jami' no. 1751, Irwa' no. 1057)
+- Finding a lost child is a communal obligation to take care of. The child is
+  considered Muslim and free unless proven otherwise. If found with wealth, it
+  may be used for his needs; otherwise maintained from the public treasury.
+  (Malik, al-Bayhaqi — Saheeh per al-Albani, Irwa' no. 1573)
+
+[EVIDENCE]:
+- Hadith of Ubayy ibn K'ab on money purse (Bukhari, Muslim).
+- Hadith of 'Iyad ibn Himar on witnessing (Saheeh Sunan Ibn Majah no. 2032).
+- Hadith of Zayd ibn Khalid on sheep/camels (Bukhari, Muslim).
+- Hadith on Makkah's inviolability (Saheeh al-Jami' no. 1751).
+- Narration of 'Umar on lost child (Irwa' no. 1573).
+
+--------------------------------------------------------------------------------
+
+[STANDARD]: Gift-Giving (al-Hibah)
+[CORE TOPIC]: Encouragement to give gifts, accepting gifts, reciprocating,
+fairness among children, and the prohibition of taking back gifts.
+
+[PERMISSIBLE CONDITIONS]:
+- Gift-giving is encouraged. "O Muslim women, do not belittle the gift sent by
+  a neighbour, even if it be a hoof of a lamb." (Bukhari, Muslim)
+- "Give gifts to one another and you will love one another." (al-Bayhaqi —
+  Saheeh per al-Albani, Saheeh al-Jami' no. 3004, Irwa' no. 1601)
+- Accepting even the smallest gifts is encouraged. "If I were invited to a meal
+  consisting of the hoof of a lamb, I would accept. And if I were given the hoof
+  of a lamb, I would accept." (Bukhari — Saheeh per al-Albani)
+- Certain gifts should never be refused: a pillow, milk, and perfume. (Tirmidhi —
+  Hasan per al-Albani, Saheeh Sunan Tirmidhi no. 2241)
+- The Prophet used to accept gifts and give something in return. (Bukhari, Abu
+  Dawood, Tirmidhi)
+- Give preference to the nearest neighbour: "Give to the one whose door is
+  closest to you." (Bukhari, Abu Dawood)
+- Give preference to relatives: "If you have given her to your maternal aunts,
+  your reward would have been greater." (Bukhari, Muslim, Abu Dawood)
+- Al-'Umra and ar-Ruqba (conditional lifetime gifts): The Prophet made both
+  valid regular gifts belonging to the receiver and passed on to his heirs.
+  "Whoever makes an 'umra gift, then it is for the one who has been given it,
+  alive and dead, and for his descendants." (Muslim — Saheeh per al-Albani,
+  Saheeh al-Jami' no. 1388)
+
+[PROHIBITED / INVALID STRUCTURES]:
+- It is forbidden to give preference to some children over others in gifts.
+  The Prophet said to a father who gifted only one child: "Fear Allah and be
+  equitable with respect to your children." He refused to witness it: "I do
+  not witness to injustice." (Bukhari, Muslim, Abu Dawood)
+- It is not permissible to take back a gift or purchase it back. "The one who
+  takes back his gift is like a dog who returns to his vomit." (Bukhari, Muslim,
+  Abu Dawood, Tirmidhi, Nasa'i)
+- 'Umar wanted to buy back a horse he had given in charity. The Prophet said:
+  "Do not buy it even if he is willing to give it to you for one dirham."
+  (Bukhari, Muslim)
+- Exception: A father may take back what he has given to his child. "It is not
+  allowed for a person to give something away and then to take it back, except
+  what a father has given to his child." (Abu Dawood, Tirmidhi, Nasa'i, Ibn
+  Majah — Saheeh per al-Albani, Saheeh al-Jami' no. 7655)
+- Government workers accepting gifts is a kind of stealing. The Prophet
+  condemned it: "Why didn't he sit in the house of his mother and father and
+  see if he will be given gifts or not?" (Bukhari, Muslim, Abu Dawood)
+
+[EVIDENCE]:
+- Hadith of Abu Hurayrah on gifts (Bukhari, Muslim).
+- Hadith on giving gifts to love each other (Saheeh al-Jami' no. 3004).
+- Hadith of an-Nu'man ibn Basheer on fairness (Bukhari, Muslim).
+- Hadith of Ibn 'Abbas on taking back gifts (Bukhari, Muslim).
+- Hadith on government workers and gifts (Bukhari, Muslim).
+
+--------------------------------------------------------------------------------
+
+[STANDARD]: Usurping Others' Property and Rights (al-Ghasb)
+[CORE TOPIC]: The prohibition of wrongfully taking others' property, land
+usurpation, self-defence of property, and preemption rights.
+
+[PROHIBITED / INVALID STRUCTURES]:
+- Usurping others' property is a form of wrongdoing (dhulm) and wrongdoing
+  will be darkness on the Day of Resurrection. (Qur'an 14:42-43, 2:188)
+- The Prophet said in his Farewell Speech: "Verily, your blood, wealth and
+  honour are inviolable to all of you." (Muslim — Saheeh per al-Albani, Saheeh
+  al-Jami' no. 2068)
+- "No one should take the possession of his brother, jokingly or seriously. If
+  one has taken the staff of his brother, he should return it to him." (Abu
+  Dawood, Tirmidhi — Hasan per al-Albani, Saheeh al-Jami' no. 7578)
+- Whoever has wronged another must beg forgiveness before the Day of Resurrection
+  when good deeds will be taken to compensate. (Bukhari, Tirmidhi — Saheeh per
+  al-Albani, Saheeh al-Jami' no. 6511)
+- It is forbidden to use or benefit from what one has usurped. It is obligatory
+  to return it.
+- Usurping land: "Whoever wrongfully takes a piece of land, on the Day of
+  Judgment his neck will be encircled with it throughout the seven earths."
+  (Bukhari, Muslim) "Whoever takes a piece of land without due right will be
+  sunk down through the seven earths on the Day of Resurrection." (Bukhari —
+  Saheeh per al-Albani, Saheeh al-Jami' no. 6385)
+- If someone usurps land and grows crops or builds on it, he must root out what
+  he planted or tear down what he built. "What the wrongdoer has planted, he
+  has no rights for it." (Tirmidhi, al-Bayhaqi — Saheeh per al-Albani)
+- "Whoever farms in a land of a people without their permission shall not be
+  due what he farmed but for him is what he expended." (Tirmidhi, Ibn Majah)
+
+[PERMISSIBLE CONDITIONS]:
+- A person may defend his life and wealth. "Do not give him your wealth... fight
+  him... if he kills you, you are a martyr... if you kill him, he will be in the
+  Fire." (Muslim, Nasa'i — Saheeh per al-Albani, Mukhtasar no. 1086)
+
+[EVIDENCE]:
+- Qur'an: 14:42-43, 2:188.
+- Hadith of Farewell Speech on inviolability (Saheeh al-Jami' no. 2068).
+- Hadith on land usurpation (Bukhari, Muslim, Saheeh al-Jami' no. 6385).
+- Hadith of Abu Hurayrah on self-defence (Muslim, Mukhtasar no. 1086).
+
+--------------------------------------------------------------------------------
+
+[STANDARD]: Preemption (ash-Shufa')
+[CORE TOPIC]: The partner's right of first refusal when property is sold, and
+the neighbour's preemption right when they share common rights.
+
+[PERMISSIBLE CONDITIONS]:
+- The Prophet judged by the rule of preemption on every property that had not
+  been subdivided. If the boundaries are demarcated and the roadways fixed,
+  then there is no preemption. (Bukhari, Abu Dawood, Ibn Majah — Saheeh per
+  al-Albani, Saheeh Sunan Ibn Majah no. 2028)
+- If a person is a partner in land, a wall, or a house, the property cannot be
+  sold until it is first offered to the partner. If sold without offering, the
+  partner still has the right to buy it. "If a person owns date-palms or a piece
+  of land, he is not to sell it until he offers it to his partner." (Ibn Majah,
+  Nasa'i — Saheeh per al-Albani, Saheeh Sunan Ibn Majah no. 2021)
+- "The partner has more right due to his closeness regardless of what is
+  involved." (Ibn Majah — Saheeh per al-Albani, Saheeh Sunan Ibn Majah no. 2027)
+- If two neighbours share some rights (roadway, water), each has the right of
+  preemption. "The neighbour has the most right for preemption with his
+  neighbour. One should wait for him if he is absent. This applies if their
+  roadway is one." (Abu Dawood, Tirmidhi, Ibn Majah — Saheeh per al-Albani,
+  Saheeh Sunan Ibn Majah no. 2023)
+
+[EVIDENCE]:
+- Hadith of Jabir on preemption (Bukhari, Saheeh Sunan Ibn Majah no. 2028).
+- Hadith on offering to partner first (Saheeh Sunan Ibn Majah no. 2021).
+- Hadith on neighbour's preemption (Saheeh Sunan Ibn Majah no. 2023).
+
+--------------------------------------------------------------------------------
+
+[STANDARD]: Agency and Power of Attorney (al-Wakalah)
+[CORE TOPIC]: Appointing another to represent oneself in transactions and
+other affairs, its permissibility, and the agent's trustee status.
+
+[PERMISSIBLE CONDITIONS]:
+- Wakalah (agency) is sanctioned by the Qur'an (18:19 — story of the People
+  of the Cave sending one to buy food), Sunnah, and consensus.
+- Power of attorney is permissible in any kind of dealing or disposition that
+  an individual is allowed to conclude on his own behalf. It is permissible
+  to delegate authority to others or to accept delegation from others.
+- It is a recommended act as it is a form of aiding one another in piety and
+  righteousness, since not everyone can directly fulfill all of his affairs.
+- Abu Rafi' said the Prophet sent him as a messenger (agent) between himself
+  and Maymoonah regarding their marriage. (Ahmad, ad-Darimi — Saheeh per
+  al-Albani, Irwa' al-Ghaleel vol. 6 p. 252)
+- The Prophet gave others authority to act on his behalf in repaying debts,
+  implementing prescribed punishments, and other acts.
+
+[PROHIBITED / INVALID STRUCTURES]:
+- Agency for haram transactions is not permitted.
+- The agent is a trustee and is NOT liable for anything unless he himself was
+  negligent. "There is no liability upon the one who accepts a trust." (Saheeh
+  al-Jami' no. 7518)
+
+[EVIDENCE]:
+- Qur'an: 18:19.
+- Hadith of Abu Rafi' on agency in marriage (Irwa' vol. 6 p. 252).
+- Hadith on trustee liability (Saheeh al-Jami' no. 7518).
+- Consensus of Muslims on permissibility.
+
+================================================================================
+END OF KNOWLEDGE BASE
+================================================================================

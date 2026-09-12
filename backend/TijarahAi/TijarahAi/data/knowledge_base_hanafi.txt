@@ -1,0 +1,344 @@
+================================================================================
+AAOIFI SHARIAH STANDARDS - COMPACT RAG KNOWLEDGE BASE
+================================================================================
+
+[SOURCE SCOPE]
+This file is a concise retrieval layer drawn from the five supplied AAOIFI
+standards. Clause references are included so answers can be traced to the
+source PDFs. "Permissible" and "prohibited" below report the AAOIFI standard;
+the filename does not make these independent Hanafi fatwas. Escalate a novel,
+jurisdiction-specific, or person-specific case to a qualified Hanafi scholar.
+
+--------------------------------------------------------------------------------
+
+[STANDARD]: AAOIFI Shari'ah Standard No. 09 - Ijarah and Ijarah Muntahia
+Bittamleek
+[CORE TOPIC]: Leasing the usufruct of property: residential and commercial
+property, land, vehicles, equipment, machinery, computers, and subleases;
+including lease-to-own (Ijarah Muntahia Bittamleek, "IMB").
+[SCOPE BOUNDARY]: This standard covers operating leases of property and IMB,
+whether the institution is lessor or lessee. It does NOT cover Sukuk al-Ijarah
+or employment/labour contracts. Do not use this standard alone to answer
+freelancing, employee, or independent-contractor questions.
+
+[PERMISSIBLE CONDITIONS]:
+- Ijarah transfers a specified halal usufruct for a specified period in return
+  for specified halal consideration. The asset must be usable while its corpus
+  is preserved.
+- The lessor must own the identified asset, or the sub-lessor its usufruct,
+  before executing the lease. A customer may promise to lease while the lessor
+  acquires the asset; an actual Ijarah begins only after acquisition and actual
+  or constructive possession.
+- A direct lease or a master agreement with separate offer/acceptance for each
+  transaction is valid. A seriousness deposit may secure a promise; only actual
+  loss caused by breach may be retained. It may become advance rent after the
+  lease is executed.
+- State the lease term and commencement. Rent is due when the lessee can use
+  the asset or the usufruct is made available, not merely on signature. It may
+  be paid in advance or instalments and may be cash, goods, or a service.
+- Fixed rent or a floating rent is allowed. For floating rent, specify the first
+  period's rent and a clear, non-disputable benchmark formula with both a floor
+  and ceiling. Past-due rent is debt and cannot later be increased.
+- The use must be halal and suitable/customary. Examples expressly contemplated
+  by the standard are a house for residence, a car for transport, and a computer
+  for data storage. A lease with a non-Muslim is valid when the intended use is
+  halal and the lessor has no reason to expect prohibited use.
+- The lessee performs ordinary/operating maintenance and is liable for damage
+  caused by misconduct or negligence. The lessor bears ownership risk, defects
+  impairing use, major maintenance, and permissible insurance/takaful cost; the
+  lessee may carry these out as the lessor's agent at the lessor's cost.
+- Subleasing is allowed at the same, lower, or higher rent unless the owner has
+  validly prohibited it or required approval. Time-sharing and leasing an
+  undivided co-owned share are also recognised forms.
+- Security (pledge, guarantee, assignment of rights) may secure due rent or
+  lessee misconduct. A solvent late payer may promise a charity donation; it
+  must go to charitable causes under Shari'ah supervision, not to the lessor.
+- The parties may amend future rent by mutual agreement, terminate by mutual
+  consent, renew, or provide a valid termination option. On destruction of an
+  identified asset, future rent ends; on partial impairment the lessee may
+  terminate or agree a rent adjustment.
+- In IMB, the eventual title transfer must be evidenced in a document separate
+  from the lease: an independent promise to sell (token, agreed, remaining-rent,
+  or market-value consideration) or an independent promise to gift, including a
+  gift contingent on final instalments.
+
+[PROHIBITED / INVALID STRUCTURES]:
+- Leasing an asset for known prohibited use: e.g., premises for riba-based
+  business or prohibited goods, or a vehicle to carry prohibited merchandise.
+- Executing an identified-asset lease before the lessor owns/possesses the
+  asset; leasing the same asset concurrently to two lessees for the same period.
+- Making the lessee bear the lessor's major-maintenance, ownership-risk, or
+  insurance liability; charging the lessee an unanticipated insurance cost after
+  rent is fixed.
+- Increasing rent because of late payment. Foreclosed security cannot be used
+  for rent not yet due or periods in which the lessee has not had the benefit.
+- Requiring remaining instalments after total destruction of the identified
+  leased asset without lessee fault.
+- Combining the IMB lease and future sale/transfer into one document/contract,
+  or making a present sale effective only on a future date.
+
+[EVIDENCE]:
+- Definition and scope: Standard 09, clauses 1 and Appendix C (Ijarah; IMB).
+- Ownership, promise deposit, and acquisition: clauses 2/1-2/4 and 3/1-3/7.
+- Contract, term, successive lease, time-share, and sublease: clauses 4/1-4/2.
+- Halal use, homes/cars/computers, maintenance, risk, insurance, and rent:
+  clauses 5/1/1-5/1/8 and 5/2/1-5/2/5.
+- Security, late payment, charity undertaking: clauses 6/1-6/5.
+- Destruction, termination, renewal: clauses 7/1-7/2.
+- Separate IMB title-transfer undertaking: clauses 8/1-8/8.
+
+--------------------------------------------------------------------------------
+
+[STANDARD]: AAOIFI Shari'ah Standard No. 10 - Salam and Parallel Salam
+[CORE TOPIC]: Advance-paid forward sale of standardised goods: agricultural
+procurement, inventory pre-orders, wholesale supply, and standard product
+pre-orders. Parallel Salam is a separate back-to-back supply/sale arrangement.
+[SCOPE BOUNDARY]: Salam is not the standard for a made-to-order manufacturing
+or construction contract (Istisna' has a separate standard).
+
+[PERMISSIBLE CONDITIONS]:
+- Salam is a sale of a prescribed commodity for deferred delivery against an
+  immediately paid price. Parties may use successive contracts under a master
+  framework, but each Salam is concluded separately.
+- Clearly specify the capital: currency, amount, and payment method; or, if
+  capital is goods/usufruct, its kind, specifications, and quantity. Capital is
+  normally paid in full at the contract sitting; a short delay of at most two or
+  three days is exceptionally allowed if it is shorter than the delivery period.
+- The future goods (al-muslam fihi) must be fungible/standardisable goods for
+  which conformity can be specified and the seller held responsible. Specify
+  quality, type, quantity (weight/measure/volume/count), delivery date, and,
+  where needed, delivery place. Use custom and expert practice to remove material
+  uncertainty.
+- The goods must normally be available at the stated delivery place/date. Branded
+  mass-produced standard units can qualify when regularly available.
+- Mortgage, guarantee, or other permissible security may secure delivery.
+- On due delivery, the buyer accepts conforming goods; superior non-vital quality
+  is accepted without a price increase. Inferior goods may be rejected, accepted,
+  or settled at a discount. Early conforming delivery is allowed unless the buyer
+  has a valid reason to reject it.
+- If goods are unavailable at maturity, the buyer may wait, cancel and recover
+  paid capital, or agree after maturity to a valid substitution. Mutual full or
+  partial cancellation for return of the corresponding capital is allowed.
+- A seller or buyer may make a Parallel Salam with a third party for matching
+  goods. Both contracts, parties' rights, and obligations must remain fully
+  independent; default under one does not suspend or terminate the other.
+
+[PROHIBITED / INVALID STRUCTURES]:
+- Using an existing debt/loan owed by the seller as Salam capital.
+- Selling the promised goods before taking possession.
+- Contracting for a specified individual item ("this car"), land/buildings/trees,
+  antiques/jewellery subject to individual assessment, or output from a named
+  field/factory; requiring currency, gold, or silver as goods when capital is
+  currency, gold, or silver.
+- Leaving the goods, quantity, delivery date, or delivery location materially
+  uncertain; a product pre-order without exact standardisable specifications.
+- A penalty clause for the seller's late delivery.
+- Linking the two contracts in Parallel Salam or making performance of one
+  contingent on the other; issuing tradable Sukuk based on Salam debt.
+
+[EVIDENCE]:
+- Scope and contract framework: Standard 10, clauses 1 and 2/1-2/2.
+- Capital and immediate payment: clause 3/1/1-3/1/4.
+- Eligible goods, specifications, availability, time/place, security: clauses
+  3/2/1-3/3.
+- Possession, substitution, cancellation, delivery remedies: clauses 4/1-5/8.
+- Independent Parallel Salam and non-tradable Salam-debt Sukuk: clauses 6/1-6/4
+  and 7.
+- Shari'ah basis in the supplied PDF: Qur'an 2:282; Ibn 'Abbas's report; and the
+  hadith, "Whoever pays ... for deferred delivery" must specify scale, weight,
+  and delivery date (Appendix B).
+
+--------------------------------------------------------------------------------
+
+[STANDARD]: AAOIFI Shari'ah Standard No. 12 - Sharikah (Musharakah) and
+Modern Corporations
+[CORE TOPIC]: Co-founder and investor partnerships, professional/service firms,
+joint ventures, companies, share capital, and diminishing co-ownership.
+
+[PERMISSIBLE CONDITIONS]:
+- Sharikat al-'Aqd is an agreement of two or more parties to combine assets,
+  labour, or liabilities for profit. Covered forms include 'Inan (capital
+  partnership), Wujuh (credit/reputation), A'mal (professional/service), stock
+  companies, joint-liability companies, commendum, companies limited by shares,
+  Muhassah, and diminishing Musharakah.
+- Document offer/acceptance and the business objectives. Partnership with a
+  non-Muslim or conventional bank is allowed for halal operations only when
+  Shari'ah compliance is assured through management/supervision.
+- Capital should normally be monetary and measurable. Tangible assets may be
+  contributed after currency valuation; multiple currencies are translated at
+  current exchange rates. Pure receivables alone cannot be capital.
+- Profit must be an agreed undivided percentage of actual profit, set when the
+  contract is concluded. It may differ from capital ratios, but the extra share
+  cannot be stipulated for a sleeping partner. Loss is strictly pro rata to each
+  partner's capital contribution.
+- Partners hold partnership assets as trustees: liability is only for misconduct,
+  negligence, or breach. Security for those failures is allowed. A truly
+  independent third party may make a free, unlinked loss-of-capital guarantee
+  subject to the standard's ownership-independence conditions.
+- A managing partner cannot receive a fixed management fee inside the Sharikah
+  contract, but may receive a larger profit share. A separate, independently
+  terminable management contract may pay a partner a fixed fee. An outside
+  manager may be paid fixed remuneration.
+- In a service partnership (A'mal), the subject is services, not monetary
+  capital. Partners may divide services unequally and share resulting profit by
+  agreed ratio, but not allocate a lump sum out of profit to one partner.
+- A stock company has separate legal personality and limited shareholder
+  liability when this is publicly disclosed. New shares may be issued at fair
+  value; subscriptions may be paid in instalments; a no-fee underwriting promise
+  is allowed (fee only for separate actual services).
+- Diminishing Musharakah: each partner contributes cash or valued tangible
+  assets. The prospective buyer gives only an independent promise to buy units;
+  every purchase/sale is independent of the partnership. Profit ratios are clear;
+  losses follow changing equity ratios. Either partner may rent the other's share
+  for stated rent and term.
+
+[PROHIBITED / INVALID STRUCTURES]:
+- Fixed profit, a percentage of capital as profit, or postponing the profit ratio
+  until profit appears. Final distribution must use actual/constructive valuation,
+  not expected profit.
+- A partner guaranteeing another partner's capital or a diminishing-Musharakah
+  buyout at original/face value. The buyout must use market value or price agreed
+  at the time of acquisition.
+- Using interest-bearing finance to buy shares, short-selling shares not owned,
+  or preference/Tamattu' shares with prohibited financial priority.
+- A sleeping partner managing a commendum/company limited by shares, or receiving
+  a fixed amount/a percentage of capital as profit.
+- Making the gradual buy/sell undertaking a condition of the diminishing
+  partnership, forcing one partner to bear all insurance/maintenance because it
+  will eventually own the asset, or giving either party a contractual right to
+  withdraw its capital share.
+
+[EVIDENCE]:
+- Scope, definition, and all covered partnership forms: Standard 12, clauses
+  1, 2/1-2/2.
+- 'Inan formation, capital, management, guarantees, profit/loss, and exit:
+  clauses 3/1/1-3/1/6.
+- Wujuh and professional/service partnership: clauses 3/2-3/3.
+- Modern company forms and share rules: clauses 4/1-4/5.
+- Diminishing Musharakah: clauses 5/1-5/9.
+
+--------------------------------------------------------------------------------
+
+[STANDARD]: AAOIFI Shari'ah Standard No. 21 - Financial Paper (Shares and
+Bonds)
+[CORE TOPIC]: Issuing, screening, buying, selling, pledging, and purifying
+corporate shares; bonds, short selling, derivatives, and share-based contracts.
+[SCOPE BOUNDARY]: This standard covers shares and interest-bearing bonds, not
+investment Sukuk (which have a separate standard).
+
+[PERMISSIBLE CONDITIONS]:
+- A company and its shares are permissible when its stated objectives and core
+  business are halal. A share represents an undivided share in the company and
+  its assets/rights; spot or permitted-deferred trading is allowed for a halal
+  company's shares after purchase formalities and transfer of liability.
+- A mixed-activity company (core activity halal but incidental riba/prohibited
+  dealings) is an AAOIFI exception only if all conditions are met: its charter
+  does not make riba/prohibited goods an objective; interest-bearing debt is no
+  more than 30% of market capitalisation; interest-bearing deposits are no more
+  than 30% of market capitalisation; and prohibited income is no more than 5% of
+  total income. Use the last budget/verified financial position.
+- Purify the prohibited income attributable to owned shares at the financial
+  period end. Formula: (company total prohibited income / total shares) x number
+  of shares owned. Purification applies whether profit is distributed or not and
+  whether the company reports profit or loss; do not use the prohibited component,
+  including to pay taxes.
+- Fixed, reasonable issuance expenses, fair-value new issues, instalment
+  subscriptions, and no-fee underwriting are allowed. Fees may be paid for
+  separate work (e.g., feasibility study/marketing), not the guarantee itself.
+- Ordinary shares may carry procedural/administrative rights such as voting;
+  lawful shares may be pledged. Licensed brokers may be required by regulators.
+- Share trading must respect the composition of company assets: cash-only shares
+  may trade only at nominal value with possession; debt-only shares follow debt
+  rules; for a business mainly in tangible assets/benefits/rights, such assets,
+  benefits, and rights must be at least 30% of total asset value for ordinary
+  trading treatment.
+- Investment Sukuk are the Shari'ah substitute identified for interest-bearing
+  bonds.
+
+[PROHIBITED / INVALID STRUCTURES]:
+- Shares in a company whose objectives include riba, liquor, swine, or another
+  prohibited activity; mixed-company investment that fails any listed condition.
+- Preference shares with financial priority in liquidation/profit and Tamattu'
+  shares as defined by the standard.
+- Margin/interest loans to purchase shares; short selling; lending shares;
+  Salam, futures, options, swaps, or rental of shares for market practices.
+- Trading cash-only shares away from nominal value/possession, or debt-only
+  shares without applying debt rules; using a small tangible component as a device
+  to trade debts.
+- Issuing, buying, selling, pledging, or endorsing interest-bearing bonds,
+  including zero-coupon and prize bonds.
+
+[EVIDENCE]:
+- Scope and share issuance: Standard 21, clauses 1 and 2/1-2/8.
+- Share nature, halal-company rule, mixed-company screening, and purification:
+  clauses 3/1-3/4/6. The 30% debt/deposit caps and 5% income cap are clauses
+  3/4/2-3/4/4; the per-share purification method is clause 3/4/6/4.
+- Deal restrictions and asset-composition rules: clauses 3/6-3/20.
+- Bonds and the Sukuk substitute: clauses 4-6.
+
+--------------------------------------------------------------------------------
+
+[STANDARD]: AAOIFI Shari'ah Standard No. 23 - Agency and the Act of an
+Uncommissioned Agent (Fodooli)
+[CORE TOPIC]: Wakalah for buying, selling, receiving, paying, delivery,
+brokerage, procurement, real-estate/fund/investment agency, affiliate-style
+commissions, and agency-structured dropshipping.
+
+[APPLICATION NOTE]: "Dropshipping" is a modern application label, not a term in
+the standard. A compliant model should be an actual, documented agency for the
+supplier or buyer: the agent acts within authorised scope, accounts to the
+principal, and earns known remuneration. Do not label an agent as owner or sell
+as principal without a valid separate ownership/sale structure.
+
+[PERMISSIBLE CONDITIONS]:
+- Agency is delegation by a principal to an agent for a delegable matter. It can
+  be immediate, conditional, future, specific/general, limited/absolute,
+  paid/unpaid, binding/non-binding, or temporary/continuous. Offer and acceptance
+  can be verbal, written, by message, or customary gesture.
+- The principal has legal capacity and the right to dispose of the subject. The
+  agent has capacity and knows their agency status. The delegated matter is known
+  enough to avoid material dispute, owned/controlled by the principal, legally
+  delegable, and halal.
+- In general/absolute agency, the agent observes the principal's interest and
+  custom. Without prior consent, an absolute agent cannot sell below/buy above
+  market price or make barter/deferred sales.
+- Paid agency is valid. State remuneration as a lump sum, a share of a specified
+  amount/output, or a formula linked to a future-known indicator; if omitted,
+  the market rate for comparable work applies. A bonus may be added. An undefined
+  right to take an unspecified share of the principal's entitlement is invalid.
+- A paid agency is binding. Other binding cases include third-party rights,
+  work that cannot stop without harm, and an undertaking not to revoke for a
+  stated period.
+- The principal bears procurement price and normal expenses (transport, storage,
+  taxes, maintenance, insurance) and pays agreed remuneration. The agent is a
+  trustee, liable only for misconduct, negligence, or breach.
+- An agent may buy for the principal and then buy from the principal only through
+  separate offer/acceptance that keeps agency and sale liabilities distinct.
+  A sub-agent needs principal permission; multiple agents act jointly unless
+  separately appointed or authorised otherwise.
+- An unauthorised Fodooli transaction is subject to the owner's approval or
+  rejection. Approval, before either party revokes, makes it effective
+  retroactively from the act date.
+
+[PROHIBITED / INVALID STRUCTURES]:
+- Agency for a haram transaction (including prohibited commodities or riba).
+- An agent dealing with themself, their dependent child, spouse, or partner in
+  the same contract; acting for both sides; or appointing a sub-agent without
+  permission, except where the standard expressly permits/authorises it.
+- Combining the agent role and a personal guarantee in the same contract. In an
+  investment agency this guarantees capital/proceeds and changes the arrangement
+  into an interest-based loan. A voluntary, independent guarantee in another
+  capacity is treated separately.
+- Ignoring price, timing, possession, ownership, or other authorised limits. The
+  principal may affirm or invalidate a non-beneficial breach; an agent who buys
+  above market/authorised price or sells below it compensates the difference.
+
+[EVIDENCE]:
+- Scope, definition, formation, forms: Standard 23, clauses 1, 2/1-2/2.
+- Party and subject conditions; types of agency: clauses 3/1-3/3 and 4/1.
+- Paid/binding/temporary agency and remuneration: clauses 4/2-4/4.
+- Principal/agent commitments and trustee liability: clauses 5/1-5/2.
+- Self-dealing, breach, sub-agency, and multiple agents: clauses 6/1-6/5.
+- Expiry and Fodooli: clauses 7/1-7/2 and 8/1-8/2.
+- Shari'ah basis for known agency wage: hadith, "He who hires a hired worker
+  must make known to him his wages" (Appendix B).
