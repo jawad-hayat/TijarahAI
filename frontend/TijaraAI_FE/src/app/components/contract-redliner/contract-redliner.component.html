@@ -1,0 +1,34 @@
+<div class="max-w-6xl mx-auto space-y-8 animate-fadeIn">
+  <div class="text-center space-y-2">
+    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-500/10 border border-brand-500/30 text-brand-400 text-xs font-semibold"><span class="h-2 w-2 rounded-full bg-emerald-400 animate-pulse"></span>Autonomous Agentic Contract Review</div>
+    <h1 class="text-3xl font-extrabold text-white tracking-tight sm:text-4xl">Shariah Contract <span class="text-brand-400">Red-Liner</span></h1>
+    <p class="text-slate-400 max-w-3xl mx-auto text-sm sm:text-base">Paste a commercial agreement. TijarahAI checks Shariah guidance, identifies prohibited clauses, and drafts practical compliant replacements.</p>
+  </div>
+
+  <div class="glass-card p-5 sm:p-6 space-y-5">
+    <div class="flex flex-col lg:flex-row lg:items-end gap-4">
+      <div class="w-full lg:w-1/3"><label for="contract-type" class="text-xs font-semibold uppercase tracking-wider text-slate-400">Agreement type</label><input id="contract-type" [(ngModel)]="contractType" class="glass-input w-full mt-1 text-sm font-medium" placeholder="e.g. Partnership agreement" /></div>
+      <div class="flex flex-wrap items-center gap-2 text-xs"><span class="text-slate-500">Try a scenario:</span><button *ngFor="let sample of sampleTemplates" type="button" (click)="loadSample(sample)" [disabled]="isLoading()" class="px-2.5 py-1.5 rounded-lg bg-slate-800/80 hover:bg-slate-700 text-slate-300 hover:text-white transition-colors disabled:opacity-50">{{ sample.name }}</button></div>
+    </div>
+    <div>
+      <div class="flex justify-between gap-3"><label for="contract-text" class="text-xs font-semibold uppercase tracking-wider text-slate-400">Contract draft</label><span class="text-[11px]" [class.text-red-400]="contractText().length > maxContractLength" [class.text-slate-500]="contractText().length <= maxContractLength">{{ contractText().length | number }} / {{ maxContractLength | number }}</span></div>
+      <textarea id="contract-text" [(ngModel)]="contractText" rows="10" [maxlength]="maxContractLength" class="glass-input w-full mt-1 font-mono text-xs leading-relaxed resize-y" placeholder="Paste the full agreement here..."></textarea>
+    </div>
+    <div class="flex justify-end"><button type="button" (click)="runAudit()" [disabled]="isLoading() || !contractText().trim()" class="w-full sm:w-auto bg-gradient-to-r from-brand-600 to-emerald-500 hover:from-brand-500 hover:to-emerald-400 text-white font-semibold py-3 px-7 rounded-xl shadow-lg shadow-brand-600/30 transition-all duration-300 flex items-center justify-center gap-2 disabled:opacity-50 active:scale-[0.98]"><span *ngIf="isLoading()" class="animate-spin">⚙️</span><span>{{ isLoading() ? 'Auditing & red-lining…' : 'Audit & redline contract' }}</span></button></div>
+  </div>
+
+  <div *ngIf="errorMessage()" class="p-4 rounded-xl bg-red-950/40 border border-red-800/80 text-red-200 text-sm animate-slideDown">⚠️ {{ errorMessage() }}</div>
+
+  <div *ngIf="auditResult() as result" class="space-y-5 animate-fadeIn">
+    <div class="glass-card p-5 border-l-4" [class.border-red-500]="result.hasViolations" [class.border-emerald-500]="!result.hasViolations"><div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3"><div><h2 class="text-lg font-bold text-white">{{ result.hasViolations ? '⚠️ Compliance risks detected & remediated' : '✅ No screened violations detected' }}</h2><p class="text-sm text-slate-400 mt-1">{{ result.executiveSummary }}</p></div><span class="shrink-0 text-xs font-mono px-3 py-1.5 rounded-full bg-slate-800 text-slate-300">{{ result.totalViolationsFound }} clause(s) remediated</span></div></div>
+    <article *ngFor="let clause of result.redlinedClauses" class="glass-card p-5 sm:p-6 space-y-4">
+      <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 pb-3 border-b border-slate-800"><span class="text-xs font-bold font-mono px-2 py-1 rounded bg-red-950/80 text-red-400 border border-red-800/50">CLAUSE {{ clause.clauseNumber }} · {{ clause.prohibitedElement }}</span><span class="text-xs text-brand-400 font-mono">{{ clause.standardCited }}</span></div>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <section class="p-4 rounded-xl bg-red-950/20 border border-red-800/40 space-y-2"><h3 class="text-xs font-bold uppercase tracking-wider text-red-400">❌ Original clause</h3><p class="font-mono text-xs leading-relaxed text-red-200 line-through">{{ clause.originalClause }}</p><p class="text-xs text-slate-400"><span class="font-semibold">Issue:</span> {{ clause.shariahIssue }}</p></section>
+        <section class="p-4 rounded-xl bg-emerald-950/20 border border-emerald-500/40 space-y-2"><h3 class="text-xs font-bold uppercase tracking-wider text-emerald-400">✅ Compliant replacement</h3><p class="font-mono text-xs leading-relaxed text-emerald-200 bg-emerald-950/40 p-3 rounded-lg">{{ clause.remediedClause }}</p><p class="text-xs text-emerald-400/80"><span class="font-semibold">Why:</span> {{ clause.scholarlyJustification }}</p></section>
+      </div>
+    </article>
+    <section class="glass-card p-5 sm:p-6 space-y-3"><div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3"><h3 class="text-sm font-bold text-white">📜 Ready-to-review remediated agreement</h3><button type="button" (click)="copyRemediatedContract(result.fullyRemediedContract)" class="text-xs px-3 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-300 hover:text-white transition-colors">{{ copyLabel() }}</button></div><textarea readonly rows="12" class="glass-input w-full font-mono text-xs text-slate-300 leading-relaxed bg-slate-950/80 select-all resize-y">{{ result.fullyRemediedContract }}</textarea></section>
+  </div>
+  <p class="text-center text-[11px] text-slate-500">AI-assisted review is not a substitute for legal advice or a qualified scholar’s ruling.</p>
+</div>

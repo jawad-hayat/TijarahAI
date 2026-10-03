@@ -1,7 +1,10 @@
 /** @type {import('tailwindcss').Config} */
+const path = require('path');
+
 module.exports = {
   content: [
-    "./src/**/*.{html,ts}",
+    // Resolve from this config file, not the terminal's current directory.
+    path.join(__dirname, 'src/**/*.{html,ts}'),
   ],
   theme: {
     extend: {

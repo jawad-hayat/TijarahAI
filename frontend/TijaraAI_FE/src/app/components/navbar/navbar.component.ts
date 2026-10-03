@@ -40,6 +40,14 @@ import { CommonModule } from '@angular/common';
             <span>⚖️</span>
             <span class="hidden sm:inline">Dual-Fiqh Advisor</span>
           </button>
+
+          <button
+            (click)="tabChanged.emit('contract')"
+            [ngClass]="activeTab() === 'contract' ? 'bg-brand-600 text-white shadow-lg' : 'text-slate-400 hover:text-slate-200'"
+            class="px-4 py-2 rounded-lg font-medium transition-all duration-300 flex items-center space-x-2">
+            <span>📜</span>
+            <span class="hidden md:inline">Contract Red-Liner</span>
+          </button>
         </div>
 
       </div>
@@ -47,6 +55,6 @@ import { CommonModule } from '@angular/common';
   `
 })
 export class NavbarComponent {
-  activeTab = input.required<'stock' | 'fiqh'>();
-  tabChanged = output<'stock' | 'fiqh'>();
+  activeTab = input.required<'stock' | 'fiqh' | 'contract'>();
+  tabChanged = output<'stock' | 'fiqh' | 'contract'>();
 }
