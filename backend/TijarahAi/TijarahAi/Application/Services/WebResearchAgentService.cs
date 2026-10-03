@@ -14,21 +14,17 @@ public class WebResearchAgentService
 
     public async Task<WebResearchResponse> ConductDeepWebResearchAsync(string query, CancellationToken cancellationToken = default)
     {
-        string prompt = $@"You are the Web Research Fatwa Agent for TijarahAI.
-The user is asking about a modern commercial transaction: ""{query}"".
+        string prompt = $@"You are a web research agent for TijarahAI.
+Research the user's query: ""{query}"".
 
-Search authoritative Islamic research portals, such as:
-- Darul Iftaa / Deoband (Hanafi)
-- IslamQA (Sheikh Al-Munajjid / Saudi Senior Scholars) (always preffered)
-- AAOIFI Official Publications
-- IslamWeb
+Use Google Search grounding to find current, authoritative, relevant sources. Do not assume the query is about Islam, contracts, finance, or law. Do not introduce a religious or legal perspective unless the query explicitly asks for one.
 
-Structure your response clearly with these 3 sections:
-1. [HANAFI PERSPECTIVE]: Explain the ruling, underlying legal maxims (Istihsan, Urf, Qabd Hukmi), and conditions.
-2. [AHL AL-HADITH / SAUDI SCHOLARS PERSPECTIVE]: Explain the direct scriptural evidence, Hadith rulings, and conditions.
-3. [CONSENSUS & DIFFERENCES]: A concise 2-sentence summary comparing both positions for the user.
+Return a concise answer with:
+1. A direct summary of the findings.
+2. Practical recommendations or key considerations.
+3. Important limitations, risks, or disagreements between sources.
 
-Ensure you cite the scholars or institutions referenced.";
+Base factual claims on the grounded sources and do not invent citations.";
 
         var (responseText, sources) = await _searchClient.GenerateWithWebSearchAsync(prompt, cancellationToken);
 

@@ -1,4 +1,4 @@
-using System.Net.Http.Headers;
+﻿using System.Net.Http.Headers;
 using System.Text;
 using System.Text.Json;
 using Microsoft.Extensions.Configuration;
@@ -19,22 +19,31 @@ public class GeminiApiClient : IGeminiClient
     {
         _httpClient = httpClient;
         _logger = logger;
-        _apiKey = config["GEMINI_API_KEY"] 
-            ?? config["Gemini:ApiKey"] 
-            ?? Environment.GetEnvironmentVariable("GEMINI_API_KEY") 
-            ?? throw new InvalidOperationException("GEMINI_API_KEY is not configured in appsettings.json or environment variables.");
+        
+        string? apiKey = config["GEMINI_API_KEY"];
+        if (string.IsNullOrWhiteSpace(apiKey))
+            apiKey = config["Gemini:ApiKey"];
+        if (string.IsNullOrWhiteSpace(apiKey))
+            apiKey = Environment.GetEnvironmentVariable("GEMINI_API_KEY");
+
+        _apiKey = apiKey?.Trim() ?? string.Empty;
 
         var configuredEmbeddingModel = config["Gemini:EmbeddingModel"] ?? "text-embedding-004";
         _embeddingModel = new Lazy<Task<string>>(
             () => ResolveEmbeddingModelAsync(configuredEmbeddingModel));
 
-        var configuredGenerationModel = config["Gemini:GenerationModel"] ?? "gemini-3.6-flash";
+        var configuredGenerationModel = config["Gemini:GenerationModel"] ?? "gemini-1.5-flash";
         _generationModel = new Lazy<Task<string>>(
             () => ResolveGenerationModelAsync(configuredGenerationModel));
     }
 
     public async Task<float[]> GenerateEmbeddingAsync(string text, CancellationToken cancellationToken = default)
     {
+        if (string.IsNullOrWhiteSpace(_apiKey))
+        {
+            throw new InvalidOperationException("GEMINI_API_KEY is not configured.");
+        }
+
         string model = await _embeddingModel.Value.WaitAsync(cancellationToken);
         string url = $"https://generativelanguage.googleapis.com/v1beta/{model}:embedContent?key={Uri.EscapeDataString(_apiKey)}";
 
@@ -69,6 +78,11 @@ public class GeminiApiClient : IGeminiClient
 
     public async Task<List<float[]>> GenerateBatchEmbeddingsAsync(List<string> texts, CancellationToken cancellationToken = default)
     {
+        if (string.IsNullOrWhiteSpace(_apiKey))
+        {
+            throw new InvalidOperationException("GEMINI_API_KEY is not configured.");
+        }
+
         string model = await _embeddingModel.Value.WaitAsync(cancellationToken);
         string url = $"https://generativelanguage.googleapis.com/v1beta/{model}:batchEmbedContents?key={Uri.EscapeDataString(_apiKey)}";
 
@@ -106,38 +120,41 @@ public class GeminiApiClient : IGeminiClient
     private async Task<string> ResolveEmbeddingModelAsync(string configuredModel)
     {
         string configuredResourceName = NormalizeModelName(configuredModel);
-        string url = $"https://generativelanguage.googleapis.com/v1beta/models?key={Uri.EscapeDataString(_apiKey)}";
-
-        using var response = await _httpClient.GetAsync(url);
-        string responseBody = await response.Content.ReadAsStringAsync();
-        if (!response.IsSuccessStatusCode)
+        if (string.IsNullOrWhiteSpace(_apiKey))
         {
-            throw new HttpRequestException(
-                $"Unable to list Gemini models ({(int)response.StatusCode} {response.ReasonPhrase}): {responseBody}");
+            return configuredResourceName;
         }
 
-        using var document = JsonDocument.Parse(responseBody);
-        var availableModels = document.RootElement.TryGetProperty("models", out var models)
-            ? models.EnumerateArray()
-                .Where(model => SupportsEmbedding(model))
-                .Select(model => model.GetProperty("name").GetString())
-                .Where(name => !string.IsNullOrWhiteSpace(name))
-                .Select(name => name!)
-                .ToList()
-            : new List<string>();
-
-        string? selectedModel = availableModels.FirstOrDefault(
-            model => string.Equals(model, configuredResourceName, StringComparison.OrdinalIgnoreCase));
-
-        selectedModel ??= availableModels.FirstOrDefault();
-        if (selectedModel is null)
+        try
         {
-            throw new InvalidOperationException(
-                $"No Gemini embedding model is available for this API key. Configured model: {configuredResourceName}.");
-        }
+            string url = $"https://generativelanguage.googleapis.com/v1beta/models?key={Uri.EscapeDataString(_apiKey)}";
 
-        _logger.LogInformation("Using Gemini embedding model {EmbeddingModel}.", selectedModel);
-        return selectedModel;
+            using var response = await _httpClient.GetAsync(url);
+            if (!response.IsSuccessStatusCode)
+            {
+                return configuredResourceName;
+            }
+
+            string responseBody = await response.Content.ReadAsStringAsync();
+            using var document = JsonDocument.Parse(responseBody);
+            var availableModels = document.RootElement.TryGetProperty("models", out var models)
+                ? models.EnumerateArray()
+                    .Where(model => SupportsEmbedding(model))
+                    .Select(model => model.GetProperty("name").GetString())
+                    .Where(name => !string.IsNullOrWhiteSpace(name))
+                    .Select(name => name!)
+                    .ToList()
+                : new List<string>();
+
+            string? selectedModel = availableModels.FirstOrDefault(
+                model => string.Equals(model, configuredResourceName, StringComparison.OrdinalIgnoreCase));
+
+            return selectedModel ?? availableModels.FirstOrDefault() ?? configuredResourceName;
+        }
+        catch
+        {
+            return configuredResourceName;
+        }
     }
 
     private static bool SupportsEmbedding(JsonElement model)
@@ -163,6 +180,11 @@ public class GeminiApiClient : IGeminiClient
 
     public async Task<string> GenerateTextAsync(string systemPrompt, string userPrompt, CancellationToken cancellationToken = default)
     {
+        if (string.IsNullOrWhiteSpace(_apiKey))
+        {
+            throw new InvalidOperationException("GEMINI_API_KEY is not configured.");
+        }
+
         string model = await _generationModel.Value.WaitAsync(cancellationToken);
         string url = $"https://generativelanguage.googleapis.com/v1beta/{model}:generateContent?key={Uri.EscapeDataString(_apiKey)}";
 
@@ -218,38 +240,41 @@ public class GeminiApiClient : IGeminiClient
     private async Task<string> ResolveGenerationModelAsync(string configuredModel)
     {
         string configuredResourceName = NormalizeModelName(configuredModel);
-        string url = $"https://generativelanguage.googleapis.com/v1beta/models?key={Uri.EscapeDataString(_apiKey)}";
-
-        using var response = await _httpClient.GetAsync(url);
-        string responseBody = await response.Content.ReadAsStringAsync();
-        if (!response.IsSuccessStatusCode)
+        if (string.IsNullOrWhiteSpace(_apiKey))
         {
-            throw new HttpRequestException(
-                $"Unable to list Gemini models ({(int)response.StatusCode} {response.ReasonPhrase}): {responseBody}");
+            return configuredResourceName;
         }
 
-        using var document = JsonDocument.Parse(responseBody);
-        var availableModels = document.RootElement.TryGetProperty("models", out var models)
-            ? models.EnumerateArray()
-                .Where(SupportsTextGeneration)
-                .Select(model => model.GetProperty("name").GetString())
-                .Where(name => !string.IsNullOrWhiteSpace(name))
-                .Select(name => name!)
-                .ToList()
-            : new List<string>();
-
-        string? selectedModel = availableModels.FirstOrDefault(
-            model => string.Equals(model, configuredResourceName, StringComparison.OrdinalIgnoreCase));
-
-        selectedModel ??= availableModels.FirstOrDefault();
-        if (selectedModel is null)
+        try
         {
-            throw new InvalidOperationException(
-                $"No Gemini text-generation model is available for this API key. Configured model: {configuredResourceName}.");
-        }
+            string url = $"https://generativelanguage.googleapis.com/v1beta/models?key={Uri.EscapeDataString(_apiKey)}";
 
-        _logger.LogInformation("Using Gemini text-generation model {GenerationModel}.", selectedModel);
-        return selectedModel;
+            using var response = await _httpClient.GetAsync(url);
+            if (!response.IsSuccessStatusCode)
+            {
+                return configuredResourceName;
+            }
+
+            string responseBody = await response.Content.ReadAsStringAsync();
+            using var document = JsonDocument.Parse(responseBody);
+            var availableModels = document.RootElement.TryGetProperty("models", out var models)
+                ? models.EnumerateArray()
+                    .Where(SupportsTextGeneration)
+                    .Select(model => model.GetProperty("name").GetString())
+                    .Where(name => !string.IsNullOrWhiteSpace(name))
+                    .Select(name => name!)
+                    .ToList()
+                : new List<string>();
+
+            string? selectedModel = availableModels.FirstOrDefault(
+                model => string.Equals(model, configuredResourceName, StringComparison.OrdinalIgnoreCase));
+
+            return selectedModel ?? availableModels.FirstOrDefault() ?? configuredResourceName;
+        }
+        catch
+        {
+            return configuredResourceName;
+        }
     }
 
     private static bool SupportsTextGeneration(JsonElement model)

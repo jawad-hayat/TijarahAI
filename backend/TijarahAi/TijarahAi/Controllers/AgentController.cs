@@ -33,7 +33,14 @@ public class AgentController : ControllerBase
         if (string.IsNullOrWhiteSpace(request.Query))
             return BadRequest(new { error = "Query cannot be empty." });
 
-        var response = await _researchAgentService.ConductDeepWebResearchAsync(request.Query, cancellationToken);
-        return Ok(response);
+        try
+        {
+            var response = await _researchAgentService.ConductDeepWebResearchAsync(request.Query, cancellationToken);
+            return Ok(response);
+        }
+        catch (InvalidOperationException exception) when (exception.Message.Contains("GEMINI_API_KEY", StringComparison.Ordinal))
+        {
+            return StatusCode(StatusCodes.Status503ServiceUnavailable, new { error = exception.Message });
+        }
     }
 }

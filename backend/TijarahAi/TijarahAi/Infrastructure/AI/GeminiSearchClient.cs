@@ -15,21 +15,36 @@ public class GeminiSearchClient : IGeminiSearchClient
 {
     private readonly HttpClient _httpClient;
     private readonly string _apiKey;
+    private readonly string _generationModel;
     private readonly ILogger<GeminiSearchClient> _logger;
 
     public GeminiSearchClient(HttpClient httpClient, IConfiguration config, ILogger<GeminiSearchClient> logger)
     {
         _httpClient = httpClient;
         _logger = logger;
-        _apiKey = config["GEMINI_API_KEY"] 
-            ?? config["Gemini:ApiKey"]
-            ?? Environment.GetEnvironmentVariable("GEMINI_API_KEY") 
-            ?? throw new InvalidOperationException("GEMINI_API_KEY is not configured.");
+        
+        string? apiKey = config["GEMINI_API_KEY"];
+        if (string.IsNullOrWhiteSpace(apiKey))
+            apiKey = config["Gemini:ApiKey"];
+        if (string.IsNullOrWhiteSpace(apiKey))
+            apiKey = Environment.GetEnvironmentVariable("GEMINI_API_KEY");
+
+        _apiKey = apiKey?.Trim() ?? string.Empty;
+        _generationModel = (config["Gemini:GenerationModel"] ?? "gemini-2.5-flash").Trim();
     }
 
     public async Task<(string ResponseText, List<ResearchSource> Sources)> GenerateWithWebSearchAsync(string prompt, CancellationToken cancellationToken = default)
     {
-        string url = $"https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key={_apiKey}";
+        if (string.IsNullOrWhiteSpace(_apiKey))
+        {
+            throw new InvalidOperationException(
+                "Web research requires GEMINI_API_KEY. Configure it with 'dotnet user-secrets set GEMINI_API_KEY <your-key>' or an environment variable.");
+        }
+
+        string model = _generationModel.StartsWith("models/", StringComparison.OrdinalIgnoreCase)
+            ? _generationModel
+            : $"models/{_generationModel}";
+        string url = $"https://generativelanguage.googleapis.com/v1beta/{model}:generateContent?key={Uri.EscapeDataString(_apiKey)}";
 
         var payload = new
         {
