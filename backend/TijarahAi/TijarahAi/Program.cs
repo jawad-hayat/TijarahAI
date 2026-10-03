@@ -1,4 +1,4 @@
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 using TijarahAi.Application.Common.Interfaces;
 using TijarahAi.Application.Services;
 using TijarahAi.Infrastructure.AI;
@@ -42,6 +42,7 @@ else
 // 4. HTTP Clients
 builder.Services.AddHttpClient<IGeminiClient, GeminiApiClient>();
 builder.Services.AddHttpClient<IStockDataProvider, YahooFinanceClient>();
+builder.Services.AddHttpClient<IGeminiSearchClient, GeminiSearchClient>();
 
 // 5. Application & Infrastructure Singletons / Scoped Services
 builder.Services.AddSingleton<IVectorStore, PersistentVectorStore>();
@@ -49,6 +50,8 @@ builder.Services.AddSingleton<IStockComplianceEngine, StockComplianceEngine>();
 builder.Services.AddScoped<AgentRouterService>();
 builder.Services.AddScoped<FiqhAdvisorService>();
 builder.Services.AddScoped<DocumentIngestionService>();
+builder.Services.AddScoped<ContractRedlinerService>();
+builder.Services.AddScoped<WebResearchAgentService>();
 
 var app = builder.Build();
 
@@ -116,3 +119,4 @@ using (var scope = app.Services.CreateScope())
 }
 
 app.Run();
+
