@@ -6,83 +6,64 @@
       Dual-Fiqh <span class="text-brand-400">Deal Advisor</span>
     </h1>
     <p class="text-slate-400 max-w-2xl mx-auto text-sm sm:text-base">
-      Ask modern commercial jurisprudence questions. TijarahAI performs strictly separated RAG searches across the Hanafi and Ahl-e-Hadith knowledge bases.
+      Ask modern commercial jurisprudence questions. TijarahAI performs strictly separated RAG searches across the
+      Hanafi and Ahl-e-Hadith knowledge bases.
     </p>
   </div>
 
   <!-- Query Input Box -->
-  <div class="glass-card p-5 sm:p-6 space-y-5">
+  <div class="glass-card p-6 space-y-4">
     <div class="space-y-2">
-      <label for="fiqh-question" class="text-xs font-semibold uppercase tracking-wider text-slate-400">Describe Your Commercial Transaction / Deal</label>
+      <label class="text-xs font-semibold uppercase tracking-wider text-slate-400">Describe Your Commercial Transaction
+        / Deal</label>
       <div class="relative">
-        <textarea
-          id="fiqh-question"
-          [(ngModel)]="question"
-          rows="3"
+        <textarea [(ngModel)]="question" rows="3"
           placeholder="e.g. Can I take an advance commission before delivering digital services?"
-          class="glass-input w-full text-sm sm:text-base leading-relaxed resize-none"></textarea>
+          class="glass-input w-full text-sm leading-relaxed resize-none"></textarea>
       </div>
     </div>
 
-    <!-- Sample queries -->
-    <div class="space-y-2">
-      <span class="block text-xs font-medium text-slate-500">Suggested:</span>
-      <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs">
-        <button
-          type="button"
-          *ngFor="let sample of sampleQuestions"
-          (click)="selectSampleQuestion(sample)"
-          class="px-3 py-2 rounded-lg bg-slate-800/80 border border-slate-700/60 hover:border-brand-500/50 hover:bg-slate-700 text-slate-300 hover:text-white text-left leading-snug transition-all duration-200 active:scale-[0.99]">
+    <div class="flex flex-col sm:flex-row items-center justify-between gap-4">
+      <!-- Sample queries -->
+      <div class="flex flex-wrap items-center gap-1.5 text-xs text-slate-400">
+        <span class="text-slate-500">Suggested:</span>
+        <button *ngFor="let sample of sampleQuestions" (click)="selectSampleQuestion(sample)"
+          class="px-2 py-1 rounded bg-slate-800/80 hover:bg-slate-700 text-slate-300 transition-all duration-200 text-left truncate max-w-xs hover:text-white hover:scale-105 active:scale-95">
           {{ sample }}
         </button>
       </div>
-    </div>
 
-    <div class="flex flex-col sm:flex-row sm:items-center sm:justify-end gap-3 pt-4 border-t border-slate-800/80">
       <!-- Submit Button -->
-      <button
-        type="button"
-        (click)="askAdvisor()"
-        [disabled]="isLoading()"
-        class="w-full sm:w-auto bg-gradient-to-r from-brand-600 to-emerald-500 hover:from-brand-500 hover:to-emerald-400 text-white font-semibold py-2.5 px-6 rounded-xl shadow-lg shadow-brand-600/30 transition-all duration-300 flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed hover:shadow-xl hover:shadow-brand-600/40 active:scale-[0.98] shrink-0">
-        <svg *ngIf="isLoading()" class="animate-spin w-5 h-5 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle class="opacity-25" cx="12" cy="12" r="9" stroke-width="3"/><path d="M21 12a9 9 0 0 0-9-9" stroke-width="3"/></svg>
-        <span>{{ isLoading() ? (isWebResearch() ? 'Researching live sources...' : 'Consulting RAG...') : 'Retrieve Rulings' }}</span>
+      <button (click)="askAdvisor()" [disabled]="isLoading()"
+        class="w-full sm:w-auto bg-gradient-to-r from-brand-600 to-emerald-500 hover:from-brand-500 hover:to-emerald-400 text-white font-semibold py-2.5 px-6 rounded-xl shadow-lg shadow-brand-600/30 transition-all duration-300 flex items-center justify-center space-x-2 disabled:opacity-50 hover:shadow-xl hover:shadow-brand-600/40 active:scale-[0.98] shrink-0">
+        <span *ngIf="isLoading()" class="animate-spin text-lg">⚖️</span>
+        <span>{{ isLoading() ? (isWebResearch() ? 'Researching live sources...' : 'Consulting RAG...') : 'Retrieve
+          Rulings' }}</span>
       </button>
-      <button
-        type="button"
-        (click)="runWebResearch()"
-        [disabled]="isLoading()"
-        class="w-full sm:w-auto border border-brand-500/50 bg-brand-500/10 hover:bg-brand-500/20 text-brand-400 font-semibold py-2.5 px-5 rounded-xl transition-all duration-300 flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed shrink-0">
-        <svg class="w-5 h-5 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18"/><path d="M12 3c2.5 2.7 3.8 5.7 3.8 9s-1.3 6.3-3.8 9c-2.5-2.7-3.8-5.7-3.8-9S9.5 5.7 12 3z"/></svg>
+      <button type="button" (click)="runWebResearch()" [disabled]="isLoading()"
+        class="w-full sm:w-auto border border-brand-500/50 bg-brand-500/10 hover:bg-brand-500/20 text-brand-400 font-semibold py-2.5 px-5 rounded-xl transition-all duration-300 flex items-center justify-center space-x-2 disabled:opacity-50 shrink-0">
+        <span>🌐</span>
         <span>Research Web Sources</span>
       </button>
     </div>
   </div>
 
   <!-- Loading Skeleton -->
-  <div *ngIf="isLoading()" class="space-y-4" role="status" aria-live="polite" aria-busy="true">
+  <div *ngIf="isLoading()" class="space-y-4">
     <div class="glass-card p-5 animate-pulse">
       <div class="h-4 bg-slate-800 rounded w-1/3 mb-3"></div>
       <div class="h-3 bg-slate-800 rounded w-full mb-2"></div>
       <div class="h-3 bg-slate-800 rounded w-2/3"></div>
     </div>
     <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-      <div class="glass-card p-5 sm:p-6 animate-pulse border-t-4 border-t-emerald-500">
-        <div class="flex items-center gap-3 mb-4">
-          <div class="h-10 w-10 bg-slate-800 rounded-xl shrink-0"></div>
-          <div class="h-5 bg-slate-800 rounded w-1/2"></div>
-        </div>
-        <div class="h-12 bg-slate-800/70 rounded-xl mb-5"></div>
+      <div class="glass-card p-6 animate-pulse border-t-4 border-t-emerald-500">
+        <div class="h-5 bg-slate-800 rounded w-1/2 mb-4"></div>
         <div class="h-3 bg-slate-800 rounded w-full mb-2"></div>
         <div class="h-3 bg-slate-800 rounded w-3/4 mb-2"></div>
         <div class="h-3 bg-slate-800 rounded w-5/6"></div>
       </div>
-      <div class="glass-card p-5 sm:p-6 animate-pulse border-t-4 border-t-gold-500">
-        <div class="flex items-center gap-3 mb-4">
-          <div class="h-10 w-10 bg-slate-800 rounded-xl shrink-0"></div>
-          <div class="h-5 bg-slate-800 rounded w-1/2"></div>
-        </div>
-        <div class="h-12 bg-slate-800/70 rounded-xl mb-5"></div>
+      <div class="glass-card p-6 animate-pulse border-t-4 border-t-gold-500">
+        <div class="h-5 bg-slate-800 rounded w-1/2 mb-4"></div>
         <div class="h-3 bg-slate-800 rounded w-full mb-2"></div>
         <div class="h-3 bg-slate-800 rounded w-3/4 mb-2"></div>
         <div class="h-3 bg-slate-800 rounded w-5/6"></div>
@@ -91,68 +72,67 @@
   </div>
 
   <!-- Error Banner -->
-  <div *ngIf="errorMessage()" role="alert" class="p-4 rounded-xl bg-red-950/40 border border-red-800/80 text-red-200 text-sm flex items-start gap-3 animate-slideDown">
-    <svg class="w-6 h-6 shrink-0 text-red-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4 2.5 20h19L12 4z"/><path d="M12 10v4"/><path d="M12 17h.01"/></svg>
-    <span class="min-w-0 break-words pt-0.5">{{ errorMessage() }}</span>
+  <div *ngIf="errorMessage()"
+    class="p-4 rounded-xl bg-red-950/40 border border-red-800/80 text-red-200 text-sm flex items-center space-x-3 animate-slideDown">
+    <span class="text-xl">⚠️</span>
+    <span>{{ errorMessage() }}</span>
   </div>
 
   <!-- Side-by-Side Dual-Fiqh Comparative View -->
   <div *ngIf="fiqhResponse() as res" class="space-y-6 animate-fadeIn">
 
     <!-- Top Comparative Synthesis Bar -->
-    <div class="glass-card p-5 sm:p-6 bg-gradient-to-r from-slate-900 via-slate-900 to-slate-950 border border-brand-500/30">
-      <div class="flex items-center gap-2.5 text-brand-400 font-semibold text-sm mb-3 pb-3 border-b border-slate-800">
-        <div class="shrink-0 p-1.5 rounded-lg bg-brand-500/10 border border-brand-500/20">
-          <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v18"/><path d="M8 21h8"/><path d="M4 7h16"/><path d="M4 7l-2.5 6a3.5 3.5 0 0 0 5 0L4 7z"/><path d="M20 7l-2.5 6a3.5 3.5 0 0 0 5 0L20 7z"/></svg>
-        </div>
+    <div class="glass-card p-5 bg-gradient-to-r from-slate-900 via-slate-900 to-slate-950 border border-brand-500/30">
+      <div class="flex items-center space-x-2 text-brand-400 font-semibold text-sm mb-2">
+        <span>⚖️</span>
         <span>Comparative Jurisprudence Synthesis</span>
       </div>
       <div class="markdown-content" [innerHTML]="res.comparativeSummary | markdown"></div>
     </div>
 
     <!-- Side-by-Side Perspectives Grid -->
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 items-stretch">
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
 
       <!-- COLUMN 1: HANAFI PERSPECTIVE -->
-      <section class="glass-card p-5 sm:p-6 border-t-4 border-t-emerald-500 flex flex-col justify-between gap-5 hover:shadow-emerald-950/30 hover:shadow-xl transition-all duration-300">
-        <div class="space-y-5">
+      <div
+        class="glass-card p-6 space-y-4 border-t-4 border-t-emerald-500 flex flex-col justify-between hover:shadow-emerald-950/30 hover:shadow-xl transition-all duration-300">
+        <div class="space-y-4">
 
-          <header class="space-y-3 pb-4 border-b border-slate-800">
-            <div class="flex items-center gap-3">
-              <div class="shrink-0 p-2 rounded-xl bg-emerald-500/10 border border-emerald-500/20 text-emerald-400">
-                <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 21h18"/><path d="M12 3 3 8.5h18L12 3z"/><path d="M5.5 11v7"/><path d="M10 11v7"/><path d="M14 11v7"/><path d="M18.5 11v7"/></svg>
-              </div>
-              <h2 class="text-lg font-bold text-white leading-tight">Hanafi Perspective</h2>
+          <div class="flex items-center justify-between pb-3 border-b border-slate-800">
+            <div class="flex items-center space-x-2">
+              <span class="text-2xl">🏛️</span>
+              <h2 class="text-lg font-bold text-white">Hanafi Perspective</h2>
             </div>
-            <div class="px-3.5 py-2.5 rounded-xl border bg-emerald-950/40 border-emerald-500/30">
-              <div class="text-[10px] uppercase tracking-wider font-semibold text-slate-400">Ruling</div>
-              <div class="mt-0.5 text-sm font-bold text-emerald-400 leading-snug break-words">{{ res.hanafiPerspective.ruling }}</div>
-            </div>
-          </header>
+            <span
+              class="text-xs px-2.5 py-1 rounded-full bg-emerald-950/80 border border-emerald-500/40 text-emerald-400 font-semibold">
+              {{ res.hanafiPerspective.ruling }}
+            </span>
+          </div>
 
           <div class="space-y-2">
-            <h3 class="text-xs font-semibold uppercase tracking-wider text-slate-400">Jurisprudential Basis & Reasoning</h3>
+            <h3 class="text-xs font-semibold uppercase tracking-wider text-slate-400">Jurisprudential Basis & Reasoning
+            </h3>
             <div class="markdown-content" [innerHTML]="res.hanafiPerspective.reasoning | markdown"></div>
           </div>
 
           <!-- Permissible Conditions -->
-          <div *ngIf="res.hanafiPerspective.permissibleConditions?.length" class="space-y-2.5 p-4 rounded-xl bg-emerald-950/20 border border-emerald-500/20">
+          <div *ngIf="res.hanafiPerspective.permissibleConditions?.length" class="space-y-2">
             <h3 class="text-xs font-semibold uppercase tracking-wider text-emerald-400">Permissible Conditions</h3>
-            <ul class="space-y-2 text-sm text-slate-300 leading-relaxed">
-              <li *ngFor="let cond of res.hanafiPerspective.permissibleConditions" class="flex items-start gap-2.5">
-                <svg class="w-4 h-4 mt-1 shrink-0 text-emerald-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>
-                <span class="min-w-0 break-words">{{ cond }}</span>
+            <ul class="space-y-1 text-xs text-slate-300">
+              <li *ngFor="let cond of res.hanafiPerspective.permissibleConditions" class="flex items-start space-x-2">
+                <span class="text-emerald-400 mt-0.5">✔</span>
+                <span>{{ cond }}</span>
               </li>
             </ul>
           </div>
 
           <!-- Prohibitions -->
-          <div *ngIf="res.hanafiPerspective.prohibitions?.length" class="space-y-2.5 p-4 rounded-xl bg-red-950/20 border border-red-500/20">
+          <div *ngIf="res.hanafiPerspective.prohibitions?.length" class="space-y-2">
             <h3 class="text-xs font-semibold uppercase tracking-wider text-red-400">Prohibited Elements</h3>
-            <ul class="space-y-2 text-sm text-slate-300 leading-relaxed">
-              <li *ngFor="let proh of res.hanafiPerspective.prohibitions" class="flex items-start gap-2.5">
-                <svg class="w-4 h-4 mt-1 shrink-0 text-red-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>
-                <span class="min-w-0 break-words">{{ proh }}</span>
+            <ul class="space-y-1 text-xs text-slate-300">
+              <li *ngFor="let proh of res.hanafiPerspective.prohibitions" class="flex items-start space-x-2">
+                <span class="text-red-400 mt-0.5">✖</span>
+                <span>{{ proh }}</span>
               </li>
             </ul>
           </div>
@@ -160,56 +140,56 @@
         </div>
 
         <!-- Citations Footer -->
-        <div class="pt-4 border-t border-slate-800/80 text-[11px] text-slate-400 space-y-1.5">
-          <div class="text-xs font-semibold text-slate-300">Authoritative Citations:</div>
-          <div *ngFor="let cite of res.hanafiPerspective.citations" class="flex items-start gap-2 font-mono leading-relaxed text-emerald-400/80">
-            <span class="mt-1.5 h-1 w-1 rounded-full bg-current shrink-0"></span>
-            <span class="min-w-0 break-words">{{ cite }}</span>
+        <div class="pt-4 border-t border-slate-800/80 text-[11px] text-slate-400">
+          <div class="font-semibold text-slate-300 mb-1">Authoritative Citations:</div>
+          <div *ngFor="let cite of res.hanafiPerspective.citations" class="font-mono text-emerald-400/80">
+            • {{ cite }}
           </div>
         </div>
 
-      </section>
+      </div>
 
       <!-- COLUMN 2: AHL AL-HADITH PERSPECTIVE -->
-      <section class="glass-card p-5 sm:p-6 border-t-4 border-t-gold-500 flex flex-col justify-between gap-5 hover:shadow-amber-950/30 hover:shadow-xl transition-all duration-300">
-        <div class="space-y-5">
+      <div
+        class="glass-card p-6 space-y-4 border-t-4 border-t-gold-500 flex flex-col justify-between hover:shadow-amber-950/30 hover:shadow-xl transition-all duration-300">
+        <div class="space-y-4">
 
-          <header class="space-y-3 pb-4 border-b border-slate-800">
-            <div class="flex items-center gap-3">
-              <div class="shrink-0 p-2 rounded-xl bg-amber-500/10 border border-amber-500/20 text-gold-400">
-                <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 6.042A8.967 8.967 0 0 0 6 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 0 1 6 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 0 1 6-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0 0 18 18a8.967 8.967 0 0 0-6 2.292m0-14.25v14.25"/></svg>
-              </div>
-              <h2 class="text-lg font-bold text-white leading-tight">Ahl al-Hadith Perspective</h2>
+          <div class="flex items-center justify-between pb-3 border-b border-slate-800">
+            <div class="flex items-center space-x-2">
+              <span class="text-2xl">📖</span>
+              <h2 class="text-lg font-bold text-white">Ahl al-Hadith Perspective</h2>
             </div>
-            <div class="px-3.5 py-2.5 rounded-xl border bg-amber-950/40 border-gold-500/30">
-              <div class="text-[10px] uppercase tracking-wider font-semibold text-slate-400">Ruling</div>
-              <div class="mt-0.5 text-sm font-bold text-gold-400 leading-snug break-words">{{ res.ahleHadithPerspective.ruling }}</div>
-            </div>
-          </header>
+            <span
+              class="text-xs px-2.5 py-1 rounded-full bg-amber-950/80 border border-gold-500/40 text-gold-400 font-semibold">
+              {{ res.ahleHadithPerspective.ruling }}
+            </span>
+          </div>
 
           <div class="space-y-2">
-            <h3 class="text-xs font-semibold uppercase tracking-wider text-slate-400">Jurisprudential Basis & Reasoning</h3>
+            <h3 class="text-xs font-semibold uppercase tracking-wider text-slate-400">Jurisprudential Basis & Reasoning
+            </h3>
             <div class="markdown-content" [innerHTML]="res.ahleHadithPerspective.reasoning | markdown"></div>
           </div>
 
           <!-- Permissible Conditions -->
-          <div *ngIf="res.ahleHadithPerspective.permissibleConditions?.length" class="space-y-2.5 p-4 rounded-xl bg-emerald-950/20 border border-emerald-500/20">
+          <div *ngIf="res.ahleHadithPerspective.permissibleConditions?.length" class="space-y-2">
             <h3 class="text-xs font-semibold uppercase tracking-wider text-emerald-400">Permissible Conditions</h3>
-            <ul class="space-y-2 text-sm text-slate-300 leading-relaxed">
-              <li *ngFor="let cond of res.ahleHadithPerspective.permissibleConditions" class="flex items-start gap-2.5">
-                <svg class="w-4 h-4 mt-1 shrink-0 text-emerald-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>
-                <span class="min-w-0 break-words">{{ cond }}</span>
+            <ul class="space-y-1 text-xs text-slate-300">
+              <li *ngFor="let cond of res.ahleHadithPerspective.permissibleConditions"
+                class="flex items-start space-x-2">
+                <span class="text-emerald-400 mt-0.5">✔</span>
+                <span>{{ cond }}</span>
               </li>
             </ul>
           </div>
 
           <!-- Prohibitions -->
-          <div *ngIf="res.ahleHadithPerspective.prohibitions?.length" class="space-y-2.5 p-4 rounded-xl bg-red-950/20 border border-red-500/20">
+          <div *ngIf="res.ahleHadithPerspective.prohibitions?.length" class="space-y-2">
             <h3 class="text-xs font-semibold uppercase tracking-wider text-red-400">Prohibited Elements</h3>
-            <ul class="space-y-2 text-sm text-slate-300 leading-relaxed">
-              <li *ngFor="let proh of res.ahleHadithPerspective.prohibitions" class="flex items-start gap-2.5">
-                <svg class="w-4 h-4 mt-1 shrink-0 text-red-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>
-                <span class="min-w-0 break-words">{{ proh }}</span>
+            <ul class="space-y-1 text-xs text-slate-300">
+              <li *ngFor="let proh of res.ahleHadithPerspective.prohibitions" class="flex items-start space-x-2">
+                <span class="text-red-400 mt-0.5">✖</span>
+                <span>{{ proh }}</span>
               </li>
             </ul>
           </div>
@@ -217,15 +197,14 @@
         </div>
 
         <!-- Citations Footer -->
-        <div class="pt-4 border-t border-slate-800/80 text-[11px] text-slate-400 space-y-1.5">
-          <div class="text-xs font-semibold text-slate-300">Authoritative Citations:</div>
-          <div *ngFor="let cite of res.ahleHadithPerspective.citations" class="flex items-start gap-2 font-mono leading-relaxed text-gold-400/80">
-            <span class="mt-1.5 h-1 w-1 rounded-full bg-current shrink-0"></span>
-            <span class="min-w-0 break-words">{{ cite }}</span>
+        <div class="pt-4 border-t border-slate-800/80 text-[11px] text-slate-400">
+          <div class="font-semibold text-slate-300 mb-1">Authoritative Citations:</div>
+          <div *ngFor="let cite of res.ahleHadithPerspective.citations" class="font-mono text-gold-400/80">
+            • {{ cite }}
           </div>
         </div>
 
-      </section>
+      </div>
 
     </div>
 
@@ -233,51 +212,41 @@
 
   <!-- Google Search-grounded fallback / on-demand research -->
   <div *ngIf="webResearchResponse() as research" class="space-y-6 animate-fadeIn">
-    <div class="glass-card p-5 sm:p-6 bg-gradient-to-r from-slate-900 via-slate-900 to-slate-950 border border-brand-500/30">
-      <div class="flex items-center gap-2.5 text-brand-400 font-semibold text-sm mb-2">
-        <div class="shrink-0 p-1.5 rounded-lg bg-brand-500/10 border border-brand-500/20">
-          <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18"/><path d="M12 3c2.5 2.7 3.8 5.7 3.8 9s-1.3 6.3-3.8 9c-2.5-2.7-3.8-5.7-3.8-9S9.5 5.7 12 3z"/></svg>
-        </div>
-        <span>Live Web-Grounded Comparative Research</span>
-      </div>
-      <p class="text-xs text-slate-400">RAG was unavailable or live research was requested. The summary below is grounded in the linked sources.</p>
+    <div class="glass-card p-5 bg-gradient-to-r from-slate-900 via-slate-900 to-slate-950 border border-brand-500/30">
+      <div class="flex items-center space-x-2 text-brand-400 font-semibold text-sm mb-2"><span>🌐</span><span>Live
+          Web-Grounded Comparative Research</span></div>
+      <p class="text-xs text-slate-400">RAG was unavailable or live research was requested. The summary below is
+        grounded in the linked sources.</p>
       <div class="markdown-content mt-3" [innerHTML]="research.keyConsensusAndDifferences | markdown"></div>
     </div>
 
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 items-stretch">
-      <section class="glass-card p-5 sm:p-6 space-y-4 border-t-4 border-t-emerald-500">
-        <div class="flex items-center gap-3 pb-4 border-b border-slate-800">
-          <div class="shrink-0 p-2 rounded-xl bg-emerald-500/10 border border-emerald-500/20 text-emerald-400">
-            <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 21h18"/><path d="M12 3 3 8.5h18L12 3z"/><path d="M5.5 11v7"/><path d="M10 11v7"/><path d="M14 11v7"/><path d="M18.5 11v7"/></svg>
-          </div>
-          <h2 class="text-lg font-bold text-white leading-tight">Hanafi Perspective</h2>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+      <section class="glass-card p-6 space-y-3 border-t-4 border-t-emerald-500">
+        <div class="flex items-center gap-2"><span class="text-2xl">🏛️</span>
+          <h2 class="text-lg font-bold text-white">Hanafi Perspective</h2>
         </div>
         <div class="markdown-content" [innerHTML]="research.hanafiVerdict | markdown"></div>
       </section>
-      <section class="glass-card p-5 sm:p-6 space-y-4 border-t-4 border-t-gold-500">
-        <div class="flex items-center gap-3 pb-4 border-b border-slate-800">
-          <div class="shrink-0 p-2 rounded-xl bg-amber-500/10 border border-amber-500/20 text-gold-400">
-            <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 6.042A8.967 8.967 0 0 0 6 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 0 1 6 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 0 1 6-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0 0 18 18a8.967 8.967 0 0 0-6 2.292m0-14.25v14.25"/></svg>
-          </div>
-          <h2 class="text-lg font-bold text-white leading-tight">Ahl al-Hadith Perspective</h2>
+      <section class="glass-card p-6 space-y-3 border-t-4 border-t-gold-500">
+        <div class="flex items-center gap-2"><span class="text-2xl">📖</span>
+          <h2 class="text-lg font-bold text-white">Ahl al-Hadith Perspective</h2>
         </div>
         <div class="markdown-content" [innerHTML]="research.ahleHadithVerdict | markdown"></div>
       </section>
     </div>
 
     <section class="glass-card p-5 sm:p-6 space-y-3">
-      <div class="flex items-center gap-2.5 text-white">
-        <div class="shrink-0 p-1.5 rounded-lg bg-slate-800 border border-slate-700 text-slate-300">
-          <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M13.19 8.688a4.5 4.5 0 0 1 1.242 7.244l-4.5 4.5a4.5 4.5 0 0 1-6.364-6.364l1.757-1.757m13.35-.622 1.757-1.757a4.5 4.5 0 0 0-6.364-6.364l-4.5 4.5a4.5 4.5 0 0 0 1.242 7.244"/></svg>
-        </div>
-        <h2 class="text-sm font-bold">Grounded sources</h2>
+      <div class="flex items-center gap-2"><span>🔗</span>
+        <h2 class="text-sm font-bold text-white">Grounded sources</h2>
       </div>
-      <a *ngFor="let source of research.webSources" [href]="source.url" target="_blank" rel="noopener noreferrer" class="block p-3.5 rounded-xl bg-slate-950/60 border border-slate-800 hover:border-brand-500/50 hover:bg-slate-900 transition-colors">
-        <div class="text-sm font-semibold text-brand-400 break-words">{{ source.title || source.url }}</div>
-        <p *ngIf="source.snippet" class="text-xs text-slate-400 mt-1 leading-relaxed">{{ source.snippet }}</p>
+      <a *ngFor="let source of research.webSources" [href]="source.url" target="_blank" rel="noopener noreferrer"
+        class="block p-3 rounded-xl bg-slate-950/60 border border-slate-800 hover:border-brand-500/50 hover:bg-slate-900 transition-colors">
+        <div class="text-sm font-semibold text-brand-400">{{ source.title || source.url }}</div>
+        <p *ngIf="source.snippet" class="text-xs text-slate-400 mt-1">{{ source.snippet }}</p>
         <p class="text-[11px] text-slate-500 mt-2 truncate">{{ source.url }}</p>
       </a>
-      <p *ngIf="!research.webSources?.length" class="text-sm text-slate-500">The provider returned no individual source links.</p>
+      <p *ngIf="!research.webSources?.length" class="text-sm text-slate-500">The provider returned no individual source
+        links.</p>
     </section>
   </div>
 
