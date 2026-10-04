@@ -10,17 +10,46 @@
       radial-gradient(at 100% 100%, rgba(217, 119, 6, 0.08) 0px, transparent 50%);
     background-attachment: fixed;
   }
+
+  html {
+    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+  }
+
+  /* Consistent keyboard focus ring for interactive elements */
+  a:focus-visible,
+  button:focus-visible,
+  select:focus-visible,
+  summary:focus-visible,
+  [tabindex]:focus-visible {
+    @apply outline-none ring-2 ring-brand-500/60;
+  }
+
+  button:disabled {
+    @apply cursor-not-allowed;
+  }
+
+  ::selection {
+    @apply bg-emerald-500/30 text-white;
+  }
 }
 
-.glass-card {
-  @apply bg-slate-900/80 backdrop-blur-md border border-slate-800/80 rounded-2xl shadow-xl;
-}
+/* In the components layer so utility classes on elements (px-*, py-*, bg-*, rounded-*) can override them */
+@layer components {
+  .glass-card {
+    @apply bg-slate-900/80 backdrop-blur-md border border-slate-800/80 rounded-2xl shadow-xl;
+  }
 
-.glass-input {
-  @apply bg-slate-950/70 border border-slate-700/70 rounded-xl px-4 py-2.5 text-slate-100 placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-brand-500/50 focus:border-brand-500 transition-all;
+  .glass-input {
+    @apply bg-slate-950/70 border border-slate-700/70 rounded-xl px-4 py-2.5 text-slate-100 placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-brand-500/50 focus:border-brand-500 transition-all disabled:opacity-60 disabled:cursor-not-allowed;
+  }
 }
 
 /* Custom scrollbars */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #1e293b #090d16;
+}
 ::-webkit-scrollbar {
   width: 6px;
   height: 6px;
@@ -80,9 +109,21 @@
   animation: glowGreen 2s ease-in-out infinite;
 }
 
+@media (prefers-reduced-motion: reduce) {
+  .animate-fadeIn,
+  .animate-slideDown,
+  .animate-glow-green {
+    animation: none;
+  }
+}
+
 /* Beautiful Rich Markdown Content Styles */
 .markdown-content {
-  @apply text-slate-200 text-sm leading-relaxed;
+  @apply text-slate-200 text-sm leading-relaxed break-words;
+}
+
+.markdown-content > :first-child {
+  @apply mt-0;
 }
 
 .markdown-content h1,
@@ -141,4 +182,36 @@
 
 .markdown-content code {
   @apply px-1.5 py-0.5 rounded bg-slate-800 text-emerald-300 font-mono text-xs border border-slate-700;
+}
+
+.markdown-content ul ul,
+.markdown-content ol ul,
+.markdown-content ul ol,
+.markdown-content ol ol {
+  @apply my-2;
+}
+
+.markdown-content a {
+  @apply text-emerald-400 underline underline-offset-2 hover:text-emerald-300 transition-colors;
+}
+
+.markdown-content pre {
+  @apply my-4 p-4 rounded-xl bg-slate-950/80 border border-slate-800 overflow-x-auto;
+}
+
+.markdown-content pre code {
+  @apply p-0 border-0 bg-transparent;
+}
+
+.markdown-content table {
+  @apply block w-full max-w-full overflow-x-auto my-4 text-xs sm:text-sm border-collapse;
+}
+
+.markdown-content th,
+.markdown-content td {
+  @apply px-3 py-2 border border-slate-800 text-left align-top;
+}
+
+.markdown-content th {
+  @apply bg-slate-900 text-slate-200 font-semibold;
 }

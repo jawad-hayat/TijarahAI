@@ -5,30 +5,111 @@
     <p class="text-slate-400 max-w-3xl mx-auto text-sm sm:text-base">Paste a commercial agreement. TijarahAI checks Shariah guidance, identifies prohibited clauses, and drafts practical compliant replacements.</p>
   </div>
 
+  <!-- Contract Input -->
   <div class="glass-card p-5 sm:p-6 space-y-5">
-    <div class="flex flex-col lg:flex-row lg:items-end gap-4">
-      <div class="w-full lg:w-1/3"><label for="contract-type" class="text-xs font-semibold uppercase tracking-wider text-slate-400">Agreement type</label><input id="contract-type" [(ngModel)]="contractType" class="glass-input w-full mt-1 text-sm font-medium" placeholder="e.g. Partnership agreement" /></div>
-      <div class="flex flex-wrap items-center gap-2 text-xs"><span class="text-slate-500">Try a scenario:</span><button *ngFor="let sample of sampleTemplates" type="button" (click)="loadSample(sample)" [disabled]="isLoading()" class="px-2.5 py-1.5 rounded-lg bg-slate-800/80 hover:bg-slate-700 text-slate-300 hover:text-white transition-colors disabled:opacity-50">{{ sample.name }}</button></div>
+    <div class="flex flex-col lg:flex-row lg:items-end gap-4 lg:gap-6">
+      <div class="w-full lg:w-1/3">
+        <label for="contract-type" class="text-xs font-semibold uppercase tracking-wider text-slate-400">Agreement type</label>
+        <input id="contract-type" [(ngModel)]="contractType" class="glass-input w-full mt-1.5 text-sm font-medium" placeholder="e.g. Partnership agreement" />
+      </div>
+      <div class="flex flex-wrap items-center gap-2 text-xs">
+        <span class="text-slate-500 font-medium">Try a scenario:</span>
+        <button *ngFor="let sample of sampleTemplates" type="button" (click)="loadSample(sample)" [disabled]="isLoading()" class="px-3 py-1.5 rounded-lg bg-slate-800/80 border border-slate-700/60 hover:border-brand-500/50 hover:bg-slate-700 text-slate-300 hover:text-white transition-colors disabled:opacity-50 disabled:cursor-not-allowed">{{ sample.name }}</button>
+      </div>
     </div>
     <div>
-      <div class="flex justify-between gap-3"><label for="contract-text" class="text-xs font-semibold uppercase tracking-wider text-slate-400">Contract draft</label><span class="text-[11px]" [class.text-red-400]="contractText().length > maxContractLength" [class.text-slate-500]="contractText().length <= maxContractLength">{{ contractText().length | number }} / {{ maxContractLength | number }}</span></div>
-      <textarea id="contract-text" [(ngModel)]="contractText" rows="10" [maxlength]="maxContractLength" class="glass-input w-full mt-1 font-mono text-xs leading-relaxed resize-y" placeholder="Paste the full agreement here..."></textarea>
+      <div class="flex items-center justify-between gap-3">
+        <label for="contract-text" class="text-xs font-semibold uppercase tracking-wider text-slate-400">Contract draft</label>
+        <span class="text-[11px] font-mono tabular-nums" [class.text-red-400]="contractText().length > maxContractLength" [class.text-slate-500]="contractText().length <= maxContractLength">{{ contractText().length | number }} / {{ maxContractLength | number }}</span>
+      </div>
+      <textarea id="contract-text" [(ngModel)]="contractText" rows="10" [maxlength]="maxContractLength" class="glass-input w-full mt-1.5 font-mono text-[13px] leading-relaxed resize-y" placeholder="Paste the full agreement here..."></textarea>
     </div>
-    <div class="flex justify-end"><button type="button" (click)="runAudit()" [disabled]="isLoading() || !contractText().trim()" class="w-full sm:w-auto bg-gradient-to-r from-brand-600 to-emerald-500 hover:from-brand-500 hover:to-emerald-400 text-white font-semibold py-3 px-7 rounded-xl shadow-lg shadow-brand-600/30 transition-all duration-300 flex items-center justify-center gap-2 disabled:opacity-50 active:scale-[0.98]"><span *ngIf="isLoading()" class="animate-spin">⚙️</span><span>{{ isLoading() ? 'Auditing & red-lining…' : 'Audit & redline contract' }}</span></button></div>
+    <div class="flex justify-end pt-4 border-t border-slate-800/80">
+      <button type="button" (click)="runAudit()" [disabled]="isLoading() || !contractText().trim()" class="w-full sm:w-auto bg-gradient-to-r from-brand-600 to-emerald-500 hover:from-brand-500 hover:to-emerald-400 text-white font-semibold py-3 px-7 rounded-xl shadow-lg shadow-brand-600/30 transition-all duration-300 flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed active:scale-[0.98]"><svg *ngIf="isLoading()" class="animate-spin w-5 h-5 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle class="opacity-25" cx="12" cy="12" r="9" stroke-width="3"/><path d="M21 12a9 9 0 0 0-9-9" stroke-width="3"/></svg><span>{{ isLoading() ? 'Auditing & red-lining…' : 'Audit & redline contract' }}</span></button>
+    </div>
   </div>
 
-  <div *ngIf="errorMessage()" class="p-4 rounded-xl bg-red-950/40 border border-red-800/80 text-red-200 text-sm animate-slideDown">⚠️ {{ errorMessage() }}</div>
+  <!-- Loading Skeleton -->
+  <div *ngIf="isLoading()" class="space-y-5" role="status" aria-live="polite" aria-busy="true">
+    <div class="glass-card p-5 sm:p-6 border-l-4 border-slate-700 animate-pulse">
+      <div class="flex items-start gap-3">
+        <div class="h-10 w-10 bg-slate-800 rounded-xl shrink-0"></div>
+        <div class="flex-1 space-y-2.5">
+          <div class="h-5 bg-slate-800 rounded w-1/2"></div>
+          <div class="h-3 bg-slate-800 rounded w-full"></div>
+          <div class="h-3 bg-slate-800 rounded w-2/3"></div>
+        </div>
+      </div>
+    </div>
+    <div class="glass-card p-5 sm:p-6 space-y-4 animate-pulse">
+      <div class="h-6 bg-slate-800 rounded w-1/3 pb-3"></div>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div class="p-4 rounded-xl bg-red-950/20 border border-red-800/30 space-y-2">
+          <div class="h-3 bg-slate-800 rounded w-1/3"></div>
+          <div class="h-3 bg-slate-800 rounded w-full"></div>
+          <div class="h-3 bg-slate-800 rounded w-5/6"></div>
+        </div>
+        <div class="p-4 rounded-xl bg-emerald-950/20 border border-emerald-500/30 space-y-2">
+          <div class="h-3 bg-slate-800 rounded w-1/3"></div>
+          <div class="h-3 bg-slate-800 rounded w-full"></div>
+          <div class="h-3 bg-slate-800 rounded w-5/6"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div *ngIf="errorMessage()" role="alert" class="p-4 rounded-xl bg-red-950/40 border border-red-800/80 text-red-200 text-sm animate-slideDown flex items-start gap-3"><svg class="w-5 h-5 shrink-0 mt-px text-red-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4 2.5 20h19L12 4z"/><path d="M12 10v4"/><path d="M12 17h.01"/></svg><span class="min-w-0 break-words">{{ errorMessage() }}</span></div>
 
   <div *ngIf="auditResult() as result" class="space-y-5 animate-fadeIn">
-    <div class="glass-card p-5 border-l-4" [class.border-red-500]="result.hasViolations" [class.border-emerald-500]="!result.hasViolations"><div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3"><div><h2 class="text-lg font-bold text-white">{{ result.hasViolations ? '⚠️ Compliance risks detected & remediated' : '✅ No screened violations detected' }}</h2><p class="text-sm text-slate-400 mt-1">{{ result.executiveSummary }}</p></div><span class="shrink-0 text-xs font-mono px-3 py-1.5 rounded-full bg-slate-800 text-slate-300">{{ result.totalViolationsFound }} clause(s) remediated</span></div></div>
+    <!-- Summary -->
+    <div class="glass-card p-5 sm:p-6 border-l-4" [class.border-red-500]="result.hasViolations" [class.border-emerald-500]="!result.hasViolations">
+      <div class="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-4">
+        <div class="flex items-start gap-3 min-w-0">
+          <div class="shrink-0 p-2 rounded-xl border" [ngClass]="result.hasViolations ? 'bg-red-500/10 border-red-500/30 text-red-400' : 'bg-emerald-500/10 border-emerald-500/30 text-emerald-400'">
+            <svg *ngIf="result.hasViolations" class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4 2.5 20h19L12 4z"/><path d="M12 10v4"/><path d="M12 17h.01"/></svg><svg *ngIf="!result.hasViolations" class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M8.5 12.5l2.5 2.5 4.5-5"/></svg>
+          </div>
+          <div class="min-w-0">
+            <h2 class="text-lg font-bold text-white leading-snug">{{ result.hasViolations ? 'Compliance risks detected & remediated' : 'No screened violations detected' }}</h2>
+            <p class="text-sm text-slate-400 mt-1.5 leading-relaxed">{{ result.executiveSummary }}</p>
+          </div>
+        </div>
+        <span class="shrink-0 self-start text-xs font-mono px-3 py-1.5 rounded-full bg-slate-800 border border-slate-700 text-slate-300 whitespace-nowrap">{{ result.totalViolationsFound }} clause(s) remediated</span>
+      </div>
+    </div>
+
+    <!-- Redlined clauses -->
     <article *ngFor="let clause of result.redlinedClauses" class="glass-card p-5 sm:p-6 space-y-4">
-      <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 pb-3 border-b border-slate-800"><span class="text-xs font-bold font-mono px-2 py-1 rounded bg-red-950/80 text-red-400 border border-red-800/50">CLAUSE {{ clause.clauseNumber }} · {{ clause.prohibitedElement }}</span><span class="text-xs text-brand-400 font-mono">{{ clause.standardCited }}</span></div>
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-        <section class="p-4 rounded-xl bg-red-950/20 border border-red-800/40 space-y-2"><h3 class="text-xs font-bold uppercase tracking-wider text-red-400">❌ Original clause</h3><p class="font-mono text-xs leading-relaxed text-red-200 line-through">{{ clause.originalClause }}</p><p class="text-xs text-slate-400"><span class="font-semibold">Issue:</span> {{ clause.shariahIssue }}</p></section>
-        <section class="p-4 rounded-xl bg-emerald-950/20 border border-emerald-500/40 space-y-2"><h3 class="text-xs font-bold uppercase tracking-wider text-emerald-400">✅ Compliant replacement</h3><p class="font-mono text-xs leading-relaxed text-emerald-200 bg-emerald-950/40 p-3 rounded-lg">{{ clause.remediedClause }}</p><p class="text-xs text-emerald-400/80"><span class="font-semibold">Why:</span> {{ clause.scholarlyJustification }}</p></section>
+      <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 pb-3 border-b border-slate-800">
+        <span class="self-start text-xs font-bold font-mono px-2.5 py-1 rounded bg-red-950/80 text-red-400 border border-red-800/50 break-words">CLAUSE {{ clause.clauseNumber }} · {{ clause.prohibitedElement }}</span>
+        <span class="text-xs text-brand-400 font-mono break-words">{{ clause.standardCited }}</span>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4 items-stretch">
+        <section class="p-4 rounded-xl bg-red-950/20 border border-red-800/40 flex flex-col gap-3">
+          <h3 class="text-xs font-bold uppercase tracking-wider text-red-400 flex items-center gap-1.5"><svg class="w-4 h-4 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M9.5 9.5l5 5M14.5 9.5l-5 5"/></svg><span>Original clause</span></h3>
+          <p class="font-mono text-[13px] md:text-xs leading-relaxed text-red-200 line-through break-words">{{ clause.originalClause }}</p>
+          <p class="mt-auto pt-3 border-t border-red-800/30 text-xs leading-relaxed text-slate-400"><span class="font-semibold text-slate-300">Issue:</span> {{ clause.shariahIssue }}</p>
+        </section>
+        <section class="p-4 rounded-xl bg-emerald-950/20 border border-emerald-500/40 flex flex-col gap-3">
+          <h3 class="text-xs font-bold uppercase tracking-wider text-emerald-400 flex items-center gap-1.5"><svg class="w-4 h-4 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M8.5 12.5l2.5 2.5 4.5-5"/></svg><span>Compliant replacement</span></h3>
+          <p class="font-mono text-[13px] md:text-xs leading-relaxed text-emerald-200 bg-emerald-950/40 p-3 rounded-lg break-words">{{ clause.remediedClause }}</p>
+          <p class="mt-auto pt-3 border-t border-emerald-500/20 text-xs leading-relaxed text-emerald-400/80"><span class="font-semibold text-emerald-300">Why:</span> {{ clause.scholarlyJustification }}</p>
+        </section>
       </div>
     </article>
-    <section class="glass-card p-5 sm:p-6 space-y-3"><div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3"><h3 class="text-sm font-bold text-white">📜 Ready-to-review remediated agreement</h3><button type="button" (click)="copyRemediatedContract(result.fullyRemediedContract)" class="text-xs px-3 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-300 hover:text-white transition-colors">{{ copyLabel() }}</button></div><textarea readonly rows="12" class="glass-input w-full font-mono text-xs text-slate-300 leading-relaxed bg-slate-950/80 select-all resize-y">{{ result.fullyRemediedContract }}</textarea></section>
+
+    <!-- Remediated agreement -->
+    <section class="glass-card p-5 sm:p-6 space-y-4">
+      <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 pb-4 border-b border-slate-800">
+        <h3 class="text-sm font-bold text-white flex items-center gap-2"><svg class="w-5 h-5 shrink-0 text-brand-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8l-5-5z"/><path d="M14 3v5h5"/><path d="M9 13h6"/><path d="M9 17h6"/></svg><span>Ready-to-review remediated agreement</span></h3>
+        <button type="button" (click)="copyRemediatedContract(result.fullyRemediedContract)" class="w-full sm:w-auto text-xs font-semibold px-3.5 py-2 rounded-lg bg-slate-800 border border-slate-700 hover:bg-slate-700 hover:border-brand-500/50 text-slate-300 hover:text-white transition-colors">{{ copyLabel() }}</button>
+      </div>
+      <textarea readonly rows="12" class="glass-input w-full font-mono text-[13px] sm:text-xs text-slate-300 leading-relaxed bg-slate-950/80 select-all resize-y">{{ result.fullyRemediedContract }}</textarea>
+    </section>
   </div>
-  <p class="text-center text-[11px] text-slate-500">AI-assisted review is not a substitute for legal advice or a qualified scholar’s ruling.</p>
+
+  <!-- Disclaimer -->
+  <div class="p-3.5 sm:p-4 rounded-xl bg-slate-900/60 border border-slate-800 flex items-start gap-3 text-xs sm:text-sm text-slate-400 leading-relaxed">
+    <svg class="w-4 h-4 sm:w-5 sm:h-5 mt-0.5 shrink-0 text-slate-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 11v5"/><path d="M12 8h.01"/></svg>
+    <p>AI-assisted review is not a substitute for legal advice or a qualified scholar’s ruling.</p>
+  </div>
 </div>
