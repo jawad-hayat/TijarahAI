@@ -1,4 +1,4 @@
-﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore;
 using TijarahAi.Application.Common.Interfaces;
 using TijarahAi.Application.Services;
 using TijarahAi.Infrastructure.AI;
@@ -40,6 +40,7 @@ else
 }
 
 // 4. HTTP Clients
+builder.Services.AddHttpClient<IGroqClient, GroqApiClient>();
 builder.Services.AddHttpClient<IGeminiClient, GeminiApiClient>();
 builder.Services.AddHttpClient<IStockDataProvider, YahooFinanceClient>();
 builder.Services.AddHttpClient<IGeminiSearchClient, GeminiSearchClient>();

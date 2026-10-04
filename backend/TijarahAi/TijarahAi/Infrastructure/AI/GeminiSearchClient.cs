@@ -1,7 +1,8 @@
-﻿using System.Text;
+using System.Text;
 using System.Text.Json;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
+using TijarahAi.Application.Common.Interfaces;
 using TijarahAi.Application.DTOs;
 
 namespace TijarahAi.Infrastructure.AI;
@@ -17,11 +18,17 @@ public class GeminiSearchClient : IGeminiSearchClient
     private readonly string _apiKey;
     private readonly string _generationModel;
     private readonly ILogger<GeminiSearchClient> _logger;
+    private readonly IGroqClient _groqClient;
 
-    public GeminiSearchClient(HttpClient httpClient, IConfiguration config, ILogger<GeminiSearchClient> logger)
+    public GeminiSearchClient(
+        HttpClient httpClient,
+        IConfiguration config,
+        ILogger<GeminiSearchClient> logger,
+        IGroqClient groqClient)
     {
         _httpClient = httpClient;
         _logger = logger;
+        _groqClient = groqClient;
         
         string? apiKey = config["GEMINI_API_KEY"];
         if (string.IsNullOrWhiteSpace(apiKey))
@@ -59,6 +66,19 @@ public class GeminiSearchClient : IGeminiSearchClient
 
         if (!response.IsSuccessStatusCode)
         {
+            if (response.StatusCode == System.Net.HttpStatusCode.TooManyRequests ||
+                (int)response.StatusCode == 429 ||
+                json.Contains("RESOURCE_EXHAUSTED", StringComparison.OrdinalIgnoreCase) ||
+                json.Contains("429", StringComparison.Ordinal))
+            {
+                _logger.LogWarning("Gemini Web Search returned 429 Too Many Requests / RESOURCE_EXHAUSTED. Falling back to Groq Cloud ({Model}).", _groqClient.ModelName);
+                string groqText = await _groqClient.GenerateTextAsync(
+                    "You are a web-grounded comparative fiqh research agent for TijarahAI.",
+                    prompt,
+                    cancellationToken);
+                return (groqText, new List<ResearchSource>());
+            }
+
             _logger.LogError("Gemini Web Search error: {Error}", json);
             return ("Web search service temporarily unavailable.", new List<ResearchSource>());
         }
