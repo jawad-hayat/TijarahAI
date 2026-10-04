@@ -1,5 +1,5 @@
 export const environment = {
   production: false,
-  apiUrl: 'https://tijarahai-be.onrender.com',
+  apiUrl: 'https://localhost:7044',
   agentApiUrl: 'https://localhost:7044'
 };
