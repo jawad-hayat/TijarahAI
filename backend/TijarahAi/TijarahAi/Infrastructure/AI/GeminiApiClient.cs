@@ -1,4 +1,4 @@
-﻿using System.Net.Http.Headers;
+using System.Net.Http.Headers;
 using System.Text;
 using System.Text.Json;
 using Microsoft.Extensions.Configuration;
@@ -12,13 +12,19 @@ public class GeminiApiClient : IGeminiClient
     private readonly HttpClient _httpClient;
     private readonly string _apiKey;
     private readonly ILogger<GeminiApiClient> _logger;
+    private readonly IGroqClient _groqClient;
     private readonly Lazy<Task<string>> _embeddingModel;
     private readonly Lazy<Task<string>> _generationModel;
 
-    public GeminiApiClient(HttpClient httpClient, IConfiguration config, ILogger<GeminiApiClient> logger)
+    public GeminiApiClient(
+        HttpClient httpClient,
+        IConfiguration config,
+        ILogger<GeminiApiClient> logger,
+        IGroqClient groqClient)
     {
         _httpClient = httpClient;
         _logger = logger;
+        _groqClient = groqClient;
         
         string? apiKey = config["GEMINI_API_KEY"];
         if (string.IsNullOrWhiteSpace(apiKey))
@@ -207,34 +213,53 @@ public class GeminiApiClient : IGeminiClient
         };
 
         var content = new StringContent(JsonSerializer.Serialize(payload), Encoding.UTF8, "application/json");
-        var response = await _httpClient.PostAsync(url, content, cancellationToken);
-        string responseJson = await response.Content.ReadAsStringAsync(cancellationToken);
-        if (!response.IsSuccessStatusCode)
-        {
-            throw new HttpRequestException(
-                $"Gemini text generation failed ({(int)response.StatusCode} {response.ReasonPhrase}): {responseJson}");
-        }
 
-        using var doc = JsonDocument.Parse(responseJson);
-        if (!doc.RootElement.TryGetProperty("candidates", out var candidates))
-            throw new InvalidOperationException("Gemini text generation returned no candidates.");
-
-        foreach (var candidate in candidates.EnumerateArray())
+        try
         {
-            if (!candidate.TryGetProperty("content", out var candidateContent) ||
-                !candidateContent.TryGetProperty("parts", out var parts))
+            var response = await _httpClient.PostAsync(url, content, cancellationToken);
+            string responseJson = await response.Content.ReadAsStringAsync(cancellationToken);
+
+            if (!response.IsSuccessStatusCode)
             {
-                continue;
+                if (response.StatusCode == System.Net.HttpStatusCode.TooManyRequests ||
+                    (int)response.StatusCode == 429 ||
+                    responseJson.Contains("RESOURCE_EXHAUSTED", StringComparison.OrdinalIgnoreCase) ||
+                    responseJson.Contains("429", StringComparison.Ordinal))
+                {
+                    _logger.LogWarning("Gemini API rate limit reached (HTTP 429 / RESOURCE_EXHAUSTED). Falling back to Groq Cloud ({Model}).", _groqClient.ModelName);
+                    return await _groqClient.GenerateTextAsync(systemPrompt, userPrompt, cancellationToken);
+                }
+
+                throw new HttpRequestException(
+                    $"Gemini text generation failed ({(int)response.StatusCode} {response.ReasonPhrase}): {responseJson}");
             }
 
-            foreach (var part in parts.EnumerateArray())
-            {
-                if (part.TryGetProperty("text", out var text))
-                    return text.GetString() ?? string.Empty;
-            }
-        }
+            using var doc = JsonDocument.Parse(responseJson);
+            if (!doc.RootElement.TryGetProperty("candidates", out var candidates))
+                throw new InvalidOperationException("Gemini text generation returned no candidates.");
 
-        throw new InvalidOperationException("Gemini text generation returned no text content.");
+            foreach (var candidate in candidates.EnumerateArray())
+            {
+                if (!candidate.TryGetProperty("content", out var candidateContent) ||
+                    !candidateContent.TryGetProperty("parts", out var parts))
+                {
+                    continue;
+                }
+
+                foreach (var part in parts.EnumerateArray())
+                {
+                    if (part.TryGetProperty("text", out var text))
+                        return text.GetString() ?? string.Empty;
+                }
+            }
+
+            throw new InvalidOperationException("Gemini text generation returned no text content.");
+        }
+        catch (HttpRequestException ex) when (ex.StatusCode == System.Net.HttpStatusCode.TooManyRequests || ex.Message.Contains("429", StringComparison.Ordinal))
+        {
+            _logger.LogWarning(ex, "Gemini text generation failed with 429 Too Many Requests. Falling back to Groq Cloud ({Model}).", _groqClient.ModelName);
+            return await _groqClient.GenerateTextAsync(systemPrompt, userPrompt, cancellationToken);
+        }
     }
 
     private async Task<string> ResolveGenerationModelAsync(string configuredModel)

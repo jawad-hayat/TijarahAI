@@ -1,4 +1,4 @@
-﻿using System.Text.Json;
+using System.Text.Json;
 using System.Text.RegularExpressions;
 using Microsoft.Extensions.Logging;
 using TijarahAi.Application.Common.Interfaces;
@@ -9,11 +9,16 @@ namespace TijarahAi.Application.Services;
 public class ContractRedlinerService
 {
     private readonly IGeminiClient _geminiClient;
+    private readonly IGroqClient _groqClient;
     private readonly ILogger<ContractRedlinerService> _logger;
 
-    public ContractRedlinerService(IGeminiClient geminiClient, ILogger<ContractRedlinerService> logger)
+    public ContractRedlinerService(
+        IGeminiClient geminiClient,
+        IGroqClient groqClient,
+        ILogger<ContractRedlinerService> logger)
     {
         _geminiClient = geminiClient;
+        _groqClient = groqClient;
         _logger = logger;
     }
 
@@ -41,7 +46,7 @@ public class ContractRedlinerService
         // 1. Run deterministic Shariah rule engine
         var ruleAudit = EvaluateDeterministicRules(rawText, request.ContractType);
 
-        // 2. Attempt AI generation if available
+        // 2. Attempt AI generation if available (with Groq backup on 429)
         ContractAuditResponse? aiAudit = null;
         try
         {
@@ -49,7 +54,15 @@ public class ContractRedlinerService
         }
         catch (Exception ex)
         {
-            _logger.LogInformation("Gemini AI contract audit deferred or unavailable ({Message}). Using deterministic Shariah audit engine.", ex.Message);
+            _logger.LogWarning("Gemini AI contract audit deferred or failed ({Message}). Attempting Groq Cloud ({Model}) backup.", ex.Message, _groqClient.ModelName);
+            try
+            {
+                aiAudit = await AuditWithGroqAsync(rawText, request.ContractType, cancellationToken);
+            }
+            catch (Exception groqEx)
+            {
+                _logger.LogError(groqEx, "Groq Cloud contract audit backup also failed. Using deterministic Shariah audit engine.");
+            }
         }
 
         // 3. Resolve results: If AI succeeded and detected violations, prefer or merge
@@ -68,9 +81,9 @@ public class ContractRedlinerService
         return aiAudit ?? ruleAudit;
     }
 
-    private async Task<ContractAuditResponse?> AuditWithGeminiAsync(string rawText, string contractType, CancellationToken cancellationToken)
+    private static string GetAuditSystemPrompt()
     {
-        string systemPrompt = @"You are the Chief Legal Redliner for TijarahAI.
+        return @"You are the Chief Legal Redliner for TijarahAI.
 Your mission is to audit commercial contracts for Shariah compliance based strictly on AAOIFI and classical Islamic jurisprudence.
 SCAN FOR:
 1. Riba (interest rates, late payment penalty fees, penalty interest, guaranteed financial returns).
@@ -99,10 +112,39 @@ Output JSON STRICTLY in this schema:
   ""fullyRemediedContract"": ""The full contract with all bad clauses replaced by good ones.""
 }
 Return ONLY valid JSON.";
+    }
 
+    private async Task<ContractAuditResponse?> AuditWithGeminiAsync(string rawText, string contractType, CancellationToken cancellationToken)
+    {
+        string systemPrompt = GetAuditSystemPrompt();
         string userPrompt = $"Contract Type: {contractType}\n\nContract Text To Audit:\n{rawText}";
 
-        string rawJson = await _geminiClient.GenerateTextAsync(systemPrompt, userPrompt, cancellationToken);
+        string rawJson;
+        try
+        {
+            rawJson = await _geminiClient.GenerateTextAsync(systemPrompt, userPrompt, cancellationToken);
+        }
+        catch (Exception ex) when (IsRateLimitOrKeyError(ex))
+        {
+            _logger.LogWarning("Gemini returned 429 / rate limit ({Message}). Falling back to Groq Cloud ({Model}) for contract audit.", ex.Message, _groqClient.ModelName);
+            return await AuditWithGroqAsync(rawText, contractType, cancellationToken);
+        }
+
+        return ParseAuditResponse(rawJson, rawText, contractType);
+    }
+
+    private async Task<ContractAuditResponse?> AuditWithGroqAsync(string rawText, string contractType, CancellationToken cancellationToken)
+    {
+        string systemPrompt = GetAuditSystemPrompt();
+        string userPrompt = $"Contract Type: {contractType}\n\nContract Text To Audit:\n{rawText}";
+
+        _logger.LogInformation("Auditing contract with Groq Cloud ({Model}).", _groqClient.ModelName);
+        string rawJson = await _groqClient.GenerateTextAsync(systemPrompt, userPrompt, cancellationToken);
+        return ParseAuditResponse(rawJson, rawText, contractType);
+    }
+
+    private static ContractAuditResponse? ParseAuditResponse(string rawJson, string rawText, string contractType)
+    {
         string clean = CleanJson(rawJson);
         var result = JsonSerializer.Deserialize<ContractAuditResponse>(clean, new JsonSerializerOptions { PropertyNameCaseInsensitive = true });
         if (result != null)
@@ -118,6 +160,16 @@ Return ONLY valid JSON.";
         }
 
         return null;
+    }
+
+    private static bool IsRateLimitOrKeyError(Exception ex)
+    {
+        string msg = ex.Message;
+        return msg.Contains("429", StringComparison.Ordinal) ||
+               msg.Contains("RESOURCE_EXHAUSTED", StringComparison.OrdinalIgnoreCase) ||
+               msg.Contains("TooManyRequests", StringComparison.OrdinalIgnoreCase) ||
+               msg.Contains("GEMINI_API_KEY", StringComparison.OrdinalIgnoreCase) ||
+               (ex is HttpRequestException httpEx && httpEx.StatusCode == System.Net.HttpStatusCode.TooManyRequests);
     }
 
     private static ContractAuditResponse EvaluateDeterministicRules(string contractText, string contractType)
@@ -284,7 +336,16 @@ Return ONLY valid JSON.";
 
     private static string CleanJson(string text)
     {
+        if (string.IsNullOrWhiteSpace(text)) return string.Empty;
         text = text.Trim();
+
+        int firstBrace = text.IndexOf('{');
+        int lastBrace = text.LastIndexOf('}');
+        if (firstBrace >= 0 && lastBrace > firstBrace)
+        {
+            return text.Substring(firstBrace, lastBrace - firstBrace + 1).Trim();
+        }
+
         if (text.StartsWith("```json", StringComparison.OrdinalIgnoreCase)) text = text[7..];
         else if (text.StartsWith("```")) text = text[3..];
         if (text.EndsWith("```")) text = text[..^3];
